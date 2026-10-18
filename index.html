@@ -1,0 +1,467 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#090a0c"><meta name="description" content="Brodyn's 2027 hybrid running training command centre"><link rel="manifest" href="./manifest.webmanifest"><title>LOCK IN · FINAL</title><style>
+:root{color-scheme:dark;--bg:#090e16;--panel:#121b29;--panel2:#182436;--line:#2a394d;--text:#f3f7fb;--muted:#9eacbd;--lime:#c9ff70;--cyan:#75cfff;--orange:#ffb777}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:14px}button,input,textarea,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--lime);outline-offset:2px}header{position:sticky;top:0;z-index:5;background:#090e16ee;backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}.head{max-width:1100px;margin:auto;padding:15px 20px;display:flex;justify-content:space-between;align-items:center}.brand{font-size:21px;font-weight:950;letter-spacing:-.7px}.brand b{color:var(--lime)}.small{font-size:11px;color:var(--muted)}.shell{max-width:1100px;margin:auto;padding:22px 18px 100px}.tabs{display:flex;gap:8px;overflow:auto;padding:13px 18px;max-width:1100px;margin:auto}.tab{background:#182436;color:#b8c6d5;border:1px solid #2c3b4f;border-radius:12px;padding:10px 14px;white-space:nowrap;font-weight:750}.tab.active{background:var(--lime);color:#0b1019;border-color:var(--lime)}.panel{background:var(--panel);border:1px solid var(--line);border-radius:19px;padding:19px;margin:0 0 15px}.hero{background:linear-gradient(125deg,#21334a,#121b29 62%,#24391e);padding:25px}.eyebrow{text-transform:uppercase;letter-spacing:2px;color:var(--lime);font-size:11px;font-weight:850}.hero h1{font-size:clamp(28px,6vw,47px);margin:8px 0 5px;line-height:1.08;letter-spacing:-1.3px}.muted{color:var(--muted)}h2{font-size:20px;letter-spacing:-.4px;margin:0 0 14px}h3{font-size:16px;margin:0 0 9px}p{line-height:1.55}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}.stat{background:var(--panel2);padding:15px;border-radius:13px}.stat strong{display:block;font-size:24px;letter-spacing:-.6px;margin-top:6px}.stat label{font-size:11px;color:var(--muted)}.race{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 0;border-top:1px solid var(--line)}.race:first-of-type{border-top:0}.race strong{display:block}.race em{font-style:normal;font-weight:850;color:var(--lime);white-space:nowrap}.pill{border:1px solid #45586a;border-radius:99px;padding:4px 8px;font-size:11px;color:#c5d2df}.row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.btn{border:0;border-radius:11px;padding:10px 13px;background:var(--lime);color:#111c13;font-weight:850}.btn.secondary{background:#26384d;color:#eaf1fa}.btn.danger{background:#503033;color:#ffe1e1}.btn:disabled{opacity:.5}.day{padding:14px 0;border-top:1px solid var(--line)}.day:first-child{border-top:0}.day-title{font-weight:850;font-size:15px}.day-sub{color:var(--muted);font-size:12px;margin:5px 0 10px;line-height:1.5}.fields{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:11px 0}.field{display:flex;flex-direction:column;gap:5px}.field label{font-size:11px;color:var(--muted)}input,textarea,select{width:100%;background:#0d1520;border:1px solid #35475d;border-radius:9px;padding:10px;color:var(--text);min-width:0}textarea{min-height:75px;resize:vertical}.check{display:inline-flex;align-items:center;gap:8px;font-weight:750}.check input{width:19px;height:19px;accent-color:var(--lime)}.exercise{display:grid;grid-template-columns:minmax(0,1fr) 78px 88px 25px;gap:7px;align-items:center;padding:9px 0;border-top:1px solid #273549}.exercise:first-of-type{border-top:0}.exercise span{font-size:12px}.exercise small{display:block;color:var(--muted);font-size:10px;margin-top:2px}.exercise input{padding:7px}.progress{height:9px;background:#28384a;border-radius:30px;overflow:hidden}.progress div{height:100%;background:var(--lime);transition:width .2s}.phase{padding:14px 0;border-top:1px solid var(--line)}.phase b{display:block}.phase small{color:var(--muted)}.phase.active{background:#1c3026;margin:0 -10px;padding:14px 10px;border-radius:10px}.navweek{display:flex;align-items:center;gap:8px}.navweek button{background:#25374a;border:0;color:white;padding:10px 14px;border-radius:10px}.tag{color:var(--lime);font-size:11px;font-weight:850;letter-spacing:.5px;text-transform:uppercase}.hint{background:#203045;border-left:3px solid var(--cyan);padding:12px;border-radius:8px;line-height:1.5;color:#d7e5f4}.warn{border-left-color:var(--orange)}.list{line-height:1.8;padding-left:20px}.hidden{display:none!important}.footer{text-align:center;color:var(--muted);padding:30px 0;font-size:12px}.right{margin-left:auto}.mini{font-size:12px}.subtle{border-top:1px solid var(--line);margin:17px 0}.bar{height:5px;background:#26384b;border-radius:6px;overflow:hidden}.bar i{display:block;height:100%;background:var(--cyan)}@media(max-width:650px){.shell{padding:14px 12px 90px}.panel{padding:15px}.grid{gap:8px}.stat{padding:11px}.stat strong{font-size:19px}.fields{grid-template-columns:repeat(2,minmax(0,1fr))}.exercise{grid-template-columns:minmax(0,1fr) 65px 70px 23px}.exercise span{font-size:11px}.tabs{padding:9px 12px}.tab{padding:9px 12px}.head{padding:12px}}
+
+/* V6 — refined workout-first design */
+:root{--bg:#0b1018;--panel:#141e2b;--panel2:#1c2939;--line:#304052;--muted:#adbac9;--lime:#d1ff85}
+body{line-height:1.45;-webkit-font-smoothing:antialiased;background:radial-gradient(ellipse at 90% -10%,#18293a 0%,transparent 38%),var(--bg)}
+.head{padding-top:17px;padding-bottom:13px}.brand{letter-spacing:-1.1px}.tabs{scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}.tab{transition:background .18s,color .18s}.shell{max-width:1050px}.panel{box-shadow:0 7px 22px #00000014}.hero{border-color:#3b4d5d;background:linear-gradient(115deg,#23374b 0%,#141e2b 65%,#263d29 100%)}
+.day{padding:18px 0}.day-title{font-size:16px;letter-spacing:-.2px}.day-sub{font-size:13px;color:#d0dce9;line-height:1.65;margin-top:10px}.day .field{margin-top:8px}
+.workout-card{border:1px solid #35495b;border-radius:16px;padding:17px;margin:14px 0;background:linear-gradient(145deg,#182738,#15212f)}.workout-card.completed{border-color:#608d61;background:linear-gradient(145deg,#1a302b,#15212f)}.workout-card .day{padding:0;border:0}.workout-card .day-title{font-size:17px}.workout-top{display:flex;gap:12px;align-items:flex-start;justify-content:space-between}.workout-type{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--lime);font-weight:850;margin-bottom:6px}.workout-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:14px 0}.workout-metric{padding:13px;background:#0f1b29;border:1px solid #2b3d4e;border-radius:12px}.workout-metric span{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.9px;color:#aabac9;margin-bottom:5px}.workout-metric strong{font-size:17px;line-height:1.25;overflow-wrap:anywhere}.workout-steps{padding:14px 15px;border-left:3px solid var(--lime);background:#0d1a27;border-radius:9px;margin:10px 0 15px;line-height:1.7;color:#e2edf6}.workout-steps b{color:var(--lime)}.workout-log-title{font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:800;color:#b2c2d1;margin-top:15px}.week-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:15px}.week-summary .stat{border:1px solid #314356}.week-summary strong{font-size:20px}.hint{line-height:1.65}.fields{gap:10px}.field label{font-weight:650}.field input,.field textarea{transition:border-color .15s}.field input:focus,.field textarea:focus{border-color:var(--lime)}
+@media(max-width:650px){.workout-card{padding:14px;margin:11px 0}.workout-metric{padding:11px}.workout-metric strong{font-size:15px}.week-summary{gap:6px}.week-summary .stat{padding:9px}.week-summary strong{font-size:16px}.head{padding:12px 14px}.hero{padding:21px}}
+
+.mindset-quote{font-size:clamp(23px,4vw,34px);font-weight:850;letter-spacing:-.8px;line-height:1.22;margin:12px 0}.mindset-meta{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--lime);font-weight:800}.mindset-note{border-left:3px solid var(--lime);padding:12px 15px;background:#1a2b2a;border-radius:0 10px 10px 0;color:#d8e5e6}.mindset-actions{display:flex;gap:9px;flex-wrap:wrap}.mindset-actions .btn{flex:1;min-width:130px}.compact-hero{padding:19px 22px}.compact-hero h1{font-size:clamp(26px,5vw,38px)}.mindset-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.mindset-steps .stat strong{font-size:15px}.mindset-steps .stat p{margin-bottom:0}@media(max-width:650px){.mindset-steps{grid-template-columns:1fr}.mindset-quote{font-size:25px}}
+
+/* Focused navigation: five primary destinations, contextual tools beneath. */
+.tabs{justify-content:space-between;gap:6px}.tabs .tab{flex:1;text-align:center;padding:11px 6px;font-size:12px}
+.subnav{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none;margin:0 0 16px;padding:3px 1px 7px}
+.subnav::-webkit-scrollbar{display:none}.subtab{border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:999px;padding:9px 13px;white-space:nowrap;font-size:12px;font-weight:700}
+.subtab.active{background:#26394a;color:var(--text);border-color:#587087}
+@media(max-width:650px){.head .small{font-size:10px}.tabs{gap:3px;padding:8px}.tabs .tab{padding:10px 3px;font-size:11px;border-radius:9px}.hero{padding:20px}.panel{margin-bottom:11px}}
+
+/* V9: Obsidian / performance red — restrained, high-contrast, mobile-first */
+:root{--bg:#090a0c;--panel:#141619;--panel2:#1d2024;--line:#303238;--text:#f5f5f3;--muted:#a9adb4;--lime:#ff4b4f;--cyan:#c2c6cd;--orange:#f3a75c}
+html{color-scheme:dark}body{background:radial-gradient(ellipse at 85% -12%,#291416 0%,transparent 36%),var(--bg)}
+header{background:#090a0cf0;border-color:var(--line)}.brand{font-weight:950;letter-spacing:-1.3px}.brand b{color:var(--lime)}
+.panel{background:var(--panel);border-color:var(--line);box-shadow:none;border-radius:15px}
+.hero{background:linear-gradient(115deg,#28191b 0%,#19191c 58%,#121417 100%);border-color:#493033;position:relative;overflow:hidden}
+.hero:before{content:'';position:absolute;right:-65px;top:-100px;width:230px;height:230px;border:1px solid #ff4b4f33;transform:rotate(35deg);pointer-events:none}
+.eyebrow,.tag,.mindset-meta{color:var(--lime)}.tab{background:#1a1c20;color:#c4c6cb;border-color:#303238}.tab.active{background:var(--lime);color:#170b0c;border-color:var(--lime)}
+.subtab.active{background:#342022;border-color:#a64145;color:#fff}
+.btn{background:var(--lime);color:#1b090a}.btn.secondary{background:#282b30;color:#f5f5f3}.btn.danger{background:#422427;color:#ffe1e1}
+.stat,.workout-metric{background:#202227}.workout-card{background:linear-gradient(135deg,#1d1f23,#17191c);border-color:#383a40}.workout-card.completed{background:#1c2320;border-color:#466d55}
+.day-sub{color:#c5c8cc}.navweek button{background:#27292e}.phase.active{background:#2b2022}
+input,textarea,select{background:#101114;border-color:#414349;color:var(--text)}.exercise{border-color:#303238}
+.progress,.bar{background:#303238}.progress div{background:var(--lime)}.bar i{background:#c5c8cc}
+.hint{background:#24272c;border-left-color:#bfc2c8;color:#e0e1e3}.hint.warn{border-left-color:var(--orange)}
+.mindset-note{background:#251d1f;color:#e9e5e5;border-left-color:var(--lime)}
+.pill{border-color:#505158;color:#d7d7da}.race em{color:var(--lime)}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--lime);outline-offset:2px}
+@media(max-width:650px){.tabs .tab{font-weight:800}.hero h1{letter-spacing:-1px}.panel{border-radius:14px}}
+/* V10 — focus-first, high contrast, thumb-friendly actions */
+.focus-panel{border:1px solid #61383b;background:linear-gradient(145deg,#22191b,#151719 65%);padding:22px}
+.focus-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.focus-top h2{font-size:clamp(21px,4.5vw,30px);margin:7px 0 0;line-height:1.1;letter-spacing:-.6px}
+.focus-status{font-size:10px;font-weight:850;letter-spacing:.6px;border:1px solid #52555b;padding:7px 9px;border-radius:7px;white-space:nowrap;color:#e2e3e5}
+.focus-status.normal{color:#9ce2ad;border-color:#406d4a}.focus-status.caution{color:#f3bf79;border-color:#84613b}.focus-status.hold{color:#ff969a;border-color:#92434a}
+.focus-metrics{display:grid;grid-template-columns:1fr 1.5fr;gap:10px;margin:18px 0}
+.focus-metrics>div{background:#111315;border:1px solid #35373b;border-radius:10px;padding:13px}
+.focus-metrics span{display:block;color:#a9adb4;font-size:10px;font-weight:800;letter-spacing:.8px;margin-bottom:7px}
+.focus-metrics strong{font-size:clamp(14px,3vw,19px);line-height:1.3}
+.focus-detail{font-size:13px;line-height:1.65;color:#d3d4d7;margin:0 0 18px}
+.workout-card{scroll-margin-top:132px}
+@media(max-width:500px){.focus-panel{padding:17px}.focus-top{display:block}.focus-status{display:inline-block;margin-top:11px}.focus-metrics{grid-template-columns:1fr 1.3fr}.focus-metrics>div{padding:10px}.focus-detail{font-size:12px}}
+
+/* FINAL: intentional, legible, thumb-friendly hierarchy */
+:root{--bg:#0b0b0e;--panel:#16171a;--panel2:#202126;--line:#34363c;--muted:#b3b5bd;--lime:#f14a4f}
+body{background:var(--bg)}.shell{max-width:950px}.panel{border-radius:14px}.hero{background:linear-gradient(115deg,#24191b,#16171a 65%)}
+.focus-panel{border:1px solid #654044;background:linear-gradient(125deg,#261a1d,#17181b 65%);padding:22px}
+.focus-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.focus-top h2{font-size:clamp(22px,4.6vw,32px);margin:7px 0 0;line-height:1.14;letter-spacing:-.7px}
+.focus-status{font-size:10px;font-weight:800;letter-spacing:.5px;border:1px solid #55565b;padding:7px 9px;border-radius:8px;white-space:nowrap;color:#e2e3e5}
+.focus-status.normal{color:#a8e1b6;border-color:#426b4e}.focus-status.caution{color:#f3c083;border-color:#86623b}.focus-status.hold{color:#ff9fa1;border-color:#92434a}
+.focus-metrics{display:grid;grid-template-columns:1fr 1.5fr;gap:10px;margin:17px 0}.focus-metrics>div{background:#101114;border:1px solid #36383e;border-radius:10px;padding:13px}
+.focus-metrics span{display:block;color:#b5b7bd;font-size:10px;font-weight:800;letter-spacing:.8px;margin-bottom:7px}.focus-metrics strong{font-size:clamp(14px,3vw,19px);line-height:1.3}
+.focus-detail{font-size:13px;line-height:1.65;color:#e0e0e2;margin:0 0 18px}.workout-card{scroll-margin-top:135px}
+.tab,.subtab,.btn{min-height:43px}.btn{padding:12px 15px}.workout-steps{background:#18191d}.workout-metric{background:#1c1d21}
+@media(max-width:500px){.focus-panel{padding:17px}.focus-top{display:block}.focus-status{display:inline-block;margin-top:11px}.focus-metrics{grid-template-columns:1fr 1.3fr}.focus-metrics>div{padding:10px}.focus-detail{font-size:12px}.tabs .tab{font-size:11px}}
+/* Readable training directions: short steps, clear line breaks */
+.instruction-list{margin:10px 0 0;padding-left:23px;display:grid;gap:10px;list-style:decimal}
+.instruction-list li{padding-left:4px;line-height:1.55;color:#f0f0f2;font-size:14px}
+.instruction-list li::marker{color:#f14a4f;font-weight:800}
+.workout-steps{padding:15px 16px;border-radius:12px}
+.workout-steps>b{font-size:12px;letter-spacing:.35px;text-transform:uppercase;color:#c4c6cc}
+.focus-detail .instruction-list{margin:2px 0 16px}
+.focus-detail .instruction-list li{font-size:13px}
+@media(max-width:600px){.instruction-list{gap:12px}.instruction-list li{font-size:14px}.workout-steps{padding:14px}}
+
+/* LOCK IN — final interface system (visual-only refinements) */
+:root{--bg:#0b0c0e;--panel:#16181b;--panel2:#202226;--line:#34373c;--text:#f7f7f7;--muted:#b4b8c0;--lime:#f14a4f}
+html{scroll-padding-top:136px;-webkit-text-size-adjust:100%}
+body{background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased}
+header{z-index:30;background:rgba(11,12,14,.96);border-bottom:1px solid #2d3035}
+.head{max-width:950px;padding:14px 18px;gap:16px}
+.brand{line-height:1.05;font-size:23px}
+.head .small{letter-spacing:.3px}
+.tabs{max-width:950px;padding:0 18px 11px;gap:8px}
+.tabs .tab{border:1px solid transparent;background:transparent;color:#b8bbc2;border-radius:10px;min-height:44px;transition:background .16s,color .16s}
+.tabs .tab:hover{background:#25272b;color:#fff}
+.tabs .tab.active{background:#292023;border-color:#684043;color:#fff;box-shadow:inset 0 -2px 0 var(--lime)}
+.shell{max-width:950px;padding:20px 18px 105px}
+.panel{background:#16181b;border:1px solid #303237;border-radius:16px;padding:22px;margin-bottom:16px}
+.panel h2{font-size:19px;line-height:1.3}
+.hero{background:linear-gradient(125deg,#271a1d,#16181b 72%);border-color:#493438}
+.eyebrow,.tag,.mindset-meta{letter-spacing:1.2px;font-size:10px}
+.focus-panel{background:linear-gradient(125deg,#27191c,#17191c 72%);border-color:#684145}
+.focus-metrics>div{background:#101114;border:1px solid #393b40}
+.focus-metrics strong{overflow-wrap:anywhere}
+.stat{background:#202226;border:1px solid #303238;border-radius:12px}
+.stat strong{font-variant-numeric:tabular-nums}
+.workout-card{background:#1a1c1f;border:1px solid #3b3e43;border-radius:14px}
+.workout-card.completed{background:#1a231f;border-color:#42664c}
+.workout-steps{background:#131518;border:1px solid #2d3035;border-radius:11px;margin:14px 0}
+.workout-steps>b{display:block;color:#d7d8db;font-size:11px;letter-spacing:.8px}
+.instruction-list{gap:10px;margin:12px 0 2px;padding-left:25px}
+.instruction-list li{font-size:14px;line-height:1.6;color:#f2f2f3;padding-left:5px}
+.instruction-list li::marker{font-weight:850;color:#ff777b}
+.workout-metrics{gap:10px}
+.workout-metric{background:#111316;border:1px solid #303238;border-radius:11px}
+.workout-metric span{color:#b8bbc1}
+.workout-metric strong{font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.workout-log-title{font-weight:800;letter-spacing:.1px}
+.subnav{gap:8px;margin-bottom:17px}
+.subtab{border-radius:10px;min-height:42px;padding:10px 14px}
+.subtab.active{background:#322326;border-color:#70474b}
+.btn{min-height:44px;border-radius:10px;padding:11px 16px}
+.btn.secondary{background:#2b2d32}
+.btn:hover{filter:brightness(1.08)}
+.btn:active,.tab:active,.subtab:active{transform:scale(.99)}
+.navweek button{min-width:43px;min-height:43px}
+input,textarea,select{min-height:44px;background:#101215;border-color:#474a51;color:#f7f7f7;border-radius:10px}
+textarea{min-height:85px;line-height:1.5}
+.field label{font-size:12px;color:#c0c3c9}
+.check input{min-height:20px}
+:focus-visible{outline:2px solid #ff777b;outline-offset:3px}
+@media(max-width:650px){
+ .head{padding:13px 15px}.head .small{font-size:10px}
+ .tabs{padding:0 10px 9px;gap:2px}
+ .tabs .tab{min-width:0;padding:10px 2px;font-size:11px;letter-spacing:-.1px}
+ .shell{padding:14px 12px calc(100px + env(safe-area-inset-bottom))}
+ .panel{padding:17px;border-radius:13px;margin-bottom:12px}
+ .focus-panel{padding:18px}
+ .focus-metrics{grid-template-columns:minmax(0,1fr) minmax(0,1.4fr)}
+ .focus-metrics>div{padding:11px}
+ .focus-metrics strong{font-size:clamp(13px,3.6vw,17px)}
+ .workout-card{padding:14px}
+ .workout-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .workout-metric{padding:10px}
+ .workout-metric strong{font-size:14px}
+ .instruction-list{gap:11px}
+ .instruction-list li{font-size:14px}
+ .fields{gap:10px}
+ .stat{padding:11px}
+ .grid{gap:8px}
+ .hero h1{font-size:clamp(27px,7vw,37px)}
+ .exercise{grid-template-columns:minmax(0,1fr) 65px 70px 23px}
+}
+@media(max-width:370px){.tabs .tab{font-size:10px}.focus-metrics{grid-template-columns:1fr}.grid .stat strong{font-size:16px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+/* Quality release: small-screen overflow and input clarity */
+.exercise{min-width:0}.exercise>span{min-width:0;overflow-wrap:anywhere}.exercise input{min-width:0;width:100%}.hint{overflow-wrap:anywhere}
+@media(max-width:410px){.exercise{grid-template-columns:minmax(0,1fr) 58px 64px 22px;gap:5px}.exercise input{font-size:12px;padding:7px 4px}.tabs{gap:0}.tabs .tab{font-size:10px}}
+.navweek button:disabled{opacity:.55;cursor:default;background:#222428;color:#c0c2c5}.navweek .week-current-btn{min-width:112px;white-space:nowrap}.navweek button:not(:disabled):active{transform:scale(.97)}@media(max-width:430px){.navweek{gap:5px}.navweek button{padding:9px 11px}.navweek .week-current-btn{min-width:100px;font-size:12px}}
+</style></head><body><header><div class="head"><div><div class="brand">LOCK <b>IN</b><span style="font-size:12px;margin-left:8px;color:#93a9bb">2027</span></div><div class="small">HYBRID TRAINING</div></div><div class="small" id="today"></div></div><nav class="tabs" aria-label="Main navigation"><button class="tab active" data-tab="home">Today</button><button class="tab" data-tab="week">Training</button><button class="tab" data-tab="stats">Progress</button><button class="tab" data-tab="motivation">Mindset</button><button class="tab" data-tab="settings">More</button></nav></header><main class="shell" id="content"></main><script>
+'use strict';const KEY='brodyn_lockin_2027_v1';const START='2026-10-19';const RACES=[{name:'River Run Half Marathon',date:'2027-05-30',goal:'PR · 21.1 km'},{name:'Backyard Ultra',date:'2027-08-01',goal:'15 loops · 100.59 km'},{name:'Detroit Marathon',date:'2027-10-17',goal:'Finish · 42.2 km'}];const PHASES=[{name:'Base + Winter Lock-In',start:'2026-10-19',end:'2026-12-27',range:'Build from actual baseline',goal:'4 runs · 3 lifts · aerobic consistency'},{name:'Half Marathon Development',start:'2026-12-28',end:'2027-03-28',range:'Conditional 35–55 km/wk',goal:'Threshold + progress toward 5 runs'},{name:'Half Marathon Peak',start:'2027-03-29',end:'2027-05-16',range:'Conditional 45–65 km/wk',goal:'Race-specific long runs + controlled tempo'},{name:'Half Marathon Taper',start:'2027-05-17',end:'2027-05-30',range:'Reduce volume',goal:'Fresh legs for PR attempt'},{name:'Recover + Ultra Transition',start:'2027-05-31',end:'2027-06-13',range:'Recovery-dependent',goal:'Recover, restore easy running'},{name:'Backyard Ultra Build',start:'2027-06-14',end:'2027-07-11',range:'Conditional 45–75 km/wk',goal:'Easy volume, loops, back-to-back runs'},{name:'Backyard Ultra Taper',start:'2027-07-12',end:'2027-08-01',range:'Reduce volume',goal:'Fueling rehearsed, legs fresh'},{name:'Ultra Recovery',start:'2027-08-02',end:'2027-08-22',range:'No fixed mileage',goal:'Walk, recover, resume when ready'},{name:'Marathon Rebuild',start:'2027-08-23',end:'2027-10-03',range:'Conditional 30–60 km/wk',goal:'Long-run endurance, controlled marathon effort'},{name:'Marathon Taper',start:'2027-10-04',end:'2027-10-17',range:'Reduce volume',goal:'Finish Detroit healthy'}];const STRENGTH={upperA:[['Incline dumbbell press','3 × 6–10'],['Lat pulldown','3 × 6–10'],['Chest-supported row','3 × 8–12'],['Dumbbell shoulder press','2 × 8–10'],['Cable lateral raise','3 × 12–20'],['Face pull','2 × 12–20'],['EZ-bar curl','3 × 8–12'],['Rope triceps pushdown','3 × 8–12']],lower:[['Bulgarian split squat','3 × 6–8 / leg'],['Dumbbell Romanian deadlift','3 × 6–10'],['Seated or lying hamstring curl','2 × 10–15'],['Standing calf raise','3 × 10–15'],['Tibialis raise','2 × 15–20'],['Copenhagen plank','2 × 20–30 sec / side']],upperB:[['Machine chest press','3 × 8–12'],['Seated cable row','3 × 8–12'],['Neutral-grip pulldown','2 × 8–12'],['Rear-delt fly','3 × 12–20'],['Cable lateral raise','3 × 12–20'],['Hammer curl','3 × 8–12'],['Overhead rope triceps extension','3 × 10–15'],['Pallof press','2 × 10–12 / side'],['Farmer carry','2 × 30–40 m']]};const DAYN=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];let db;try{db=JSON.parse(localStorage.getItem(KEY))||{}}catch{db={}}db.logs ||= {};db.lifts ||= {};db.reviews ||= {};db.wellness ||= {};db.prs ||= {five:'21:11',ten:'44:08',half:'1:50:00',marathon:''};db.settings ||= {baseline:'',longRun:'',notes:'',targetHalf:'',weeklyGoal:'',startingWeek:'2026-10-19',runDays:'4'};db.settings.runDays ||= '4';db.body ||= {};let tab='home';let selectedWeek=weekMonday(new Date())<'2026-10-19'?'2026-10-19':weekMonday(new Date());function dateUTC(s){return new Date(s+'T12:00:00Z')}function iso(d){return d.toISOString().slice(0,10)}function plus(s,n){let d=dateUTC(s);d.setUTCDate(d.getUTCDate()+n);return iso(d)}function weekMonday(d){const x=new Date(d.getFullYear(),d.getMonth(),d.getDate(),12);x.setDate(x.getDate()-(x.getDay()+6)%7);return x.getFullYear()+'-'+String(x.getMonth()+1).padStart(2,'0')+'-'+String(x.getDate()).padStart(2,'0')}function fmt(s){return dateUTC(s).toLocaleDateString('en-CA',{month:'short',day:'numeric',timeZone:'UTC'})}function phaseAt(s){return PHASES.find(p=>s>=p.start&&s<=p.end)|| (s<PHASES[0].start?PHASES[0]:PHASES.at(-1))}function dayDiff(a,b){return Math.round((dateUTC(b)-dateUTC(a))/86400000)}function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}function save(){try{localStorage.setItem(KEY,JSON.stringify(db))}catch(e){alert('Storage unavailable. Export your backup now.')}}function logFor(s){return db.logs[s]||{}}function phaseDays(phase){if(phase.name.startsWith('Base'))return [{title:'Long run + mobility',type:'run',detail:'Easy pace. Start from your comfortable distance; do not force a target.'},{title:'Upper A + foot/ankle',type:'gym',detail:'Strength; 2 reps in reserve. 5–10 min ankle work.',lift:'upperA'},{title:'Intervals + reduced Lower',type:'both',detail:'Controlled 400–800m repeats or short threshold. Easy warm-up/cooldown. Lower session reduced.',lift:'lower'},{title:'Upper B + core + foot/ankle',type:'gym',detail:'Upper hypertrophy; ankle work 5–10 min.',lift:'upperB'},{title:'Easy run + strides',type:'run',detail:'Conversational pace. Finish with 4–6 × 20-sec strides when fresh.'},{title:'Saturday threshold',type:'run',detail:'Structured threshold workout every Saturday, with warm-up, controlled repetitions and cooldown.'},{title:'Recovery / rest',type:'rest',detail:'Walk, mobility, or full rest. No make-up sessions.'}];if(phase.name.includes('Half Marathon Development'))return [{title:'Easy aerobic',type:'run',detail:' easy, 6–8 km if your baseline supports it.'},{title:'Upper A + foot/ankle',type:'gym',detail:'Strength, avoid failure.',lift:'upperA'},{title:'Threshold intervals + Lower',type:'both',detail:'Example: 4 × 6 min threshold, 2-min jog; warm-up/cooldown. Reduced Lower if recovered.',lift:'lower'},{title:'Upper B + core',type:'gym',detail:'Maintain upper-body strength.',lift:'upperB'},{title:'Easy + strides',type:'run',detail:' easy, 6–9 km, optional 4–6 strides.'},{title:'Easy long run',type:'run',detail:' easy. Progress from recent long-run baseline toward 16–20 km.'},{title:'Rest or short recovery',type:'run',detail:'Optional 4–6 km 2 only if adapted to 5 runs.'}];if(phase.name.includes('Half Marathon Peak'))return [{title:'Easy recovery',type:'run',detail:'6–8 km easy if adapted.'},{title:'Upper A',type:'gym',detail:'Short maintenance workout.',lift:'upperA'},{title:'Threshold session',type:'run',detail:'Example 3 × 10 min threshold with 2-min jog, total 10–13 km.'},{title:'Easy + light Lower',type:'both',detail:'Easy pace–9 km, easy. Lower volume reduced.',lift:'lower'},{title:'Easy + strides',type:'run',detail:'5–7 km easy, 4 × 20-sec strides.'},{title:'Long run',type:'run',detail:'Easy 18–24 km only if built up. Some weeks final 4–6 km controlled HM effort; alternate fully easy.'},{title:'Rest',type:'rest',detail:'Recover.'}];if(phase.name.includes('Half Marathon Taper'))return [{title:'Easy',type:'run',detail:'Short easy pace; reduce overall weekly volume.'},{title:'Light Upper A',type:'gym',detail:'Optional light strength only.',lift:'upperA'},{title:'Brief threshold touch',type:'run',detail:'Small controlled dose, no maximal efforts.'},{title:'Rest or easy',type:'rest',detail:'Keep legs fresh.'},{title:'Easy + short strides',type:'run',detail:'Brief relaxed run if not within 24h of race.'},{title:'Rest / shakeout',type:'rest',detail:'No fatigue.'},{title:'Race / recovery',type:'run',detail:'May 30: Half Marathon. Other days: easy recovery.'}];if(phase.name.includes('Ultra Transition')||phase.name.includes('Ultra Recovery'))return DAYN.map((_,i)=>({title:i===0?'Full rest / recovery':i===3?'Optional gentle walk or mobility':'Recovery-dependent',type:'rest',detail:'No mileage target. Resume short easy runs only when walking and daily activities are comfortable; persistent pain or fatigue = more recovery.'}));if(phase.name.includes('Backyard Ultra Build'))return [{title:'Rest + mobility',type:'rest',detail:'Full recovery day.'},{title:'Easy + Upper A',type:'both',detail:'8–10 km easy if built up; short upper maintenance.',lift:'upperA'},{title:'Easy aerobic',type:'run',detail:'8–12 km easy.'},{title:'Easy + light Lower',type:'both',detail:'6–8 km easy; minimal soreness from strength.',lift:'lower'},{title:'Recovery run',type:'run',detail:'4–6 km 2.'},{title:'Long easy / loop simulation',type:'run',detail:'18–24 km easy or 3–5 hourly 6.706 km loops (replace other mileage). Fuel and walk.'},{title:'Back-to-back easy',type:'run',detail:'8–14 km easy on tired legs, or rest after loop simulation.'}];if(phase.name.includes('Backyard Ultra Taper'))return [{title:'Rest',type:'rest',detail:'Recover.'},{title:'Easy short run',type:'run',detail:'Reduced volume, easy.'},{title:'Easy short run',type:'run',detail:'Relaxed, no major fatigue.'},{title:'Mobility',type:'rest',detail:'Gear and fueling checklist.'},{title:'Optional shakeout',type:'run',detail:'Very easy if recovered.'},{title:'Rest',type:'rest',detail:'Fuel, hydrate normally, prepare crew setup.'},{title:'Race / easy',type:'run',detail:'August 1: Backyard Ultra. Aim 15 completed loops.'}];if(phase.name.includes('Marathon Rebuild'))return [{title:'Rest',type:'rest',detail:'Recovery and mobility.'},{title:'Easy + Upper A',type:'both',detail:'6–9 km 3; upper maintenance.',lift:'upperA'},{title:'Marathon-effort practice',type:'run',detail:'8–12 km total, with 3–6 km controlled marathon effort only after full recovery.'},{title:'Easy + light Lower',type:'both',detail:'5–8 km easy, light strength.',lift:'lower'},{title:'Easy aerobic',type:'run',detail:'5–8 km easy.'},{title:'Long run',type:'run',detail:'Progress cautiously 16–28 km if recovered; no need to force 30+ km.'},{title:'Rest',type:'rest',detail:'Recover.'}];return [{title:'Easy',type:'run',detail:'Short relaxed run.'},{title:'Light upper',type:'gym',detail:'Optional light upper maintenance.',lift:'upperA'},{title:'Brief controlled effort',type:'run',detail:'Short marathon-effort segment only if fresh.'},{title:'Rest',type:'rest',detail:'Mobility.'},{title:'Easy',type:'run',detail:'Short relaxed run.'},{title:'Rest / shakeout',type:'rest',detail:'Fuel and prepare.'},{title:'Race / recovery',type:'run',detail:'October 17: Detroit Marathon. Completion goal.'}]}
+const MOTIVATION=[
+'You do not need a perfect day. You need to show up.',
+'Easy days build the engine. Hard days test it.',
+'Build the body. Build the endurance. Keep the promise.',
+'Consistency beats the workout you never recover from.',
+'The goal is not to win today. The goal is to be ready on race day.',
+'Strong enough to lift. Patient enough to run easy.',
+'Your next workout matters more than your last excuse.',
+'The work you repeat is the work that changes you.',
+'Rest is training when it helps you come back stronger.',
+'One session at a time. One week at a time.'
+];
+function dailyQuote(date){let n=Math.floor(dateUTC(date).getTime()/86400000);return MOTIVATION[((n%MOTIVATION.length)+MOTIVATION.length)%MOTIVATION.length]}
+function htmlMotivation(){let today=iso(new Date()),why=db.settings.why||'';return `<section class="panel hero compact-hero"><div class="eyebrow">The mindset</div><h1>DISCIPLINE OVER HYPE.</h1><p class="muted">Your goals are ambitious. Your job is to stack sustainable days, not chase exhaustion.</p></section><section class="panel"><div class="mindset-meta">TODAY'S REMINDER · ${fmt(today)}</div><div class="mindset-quote">“${esc(dailyQuote(today))}”</div><div class="mindset-actions"><button class="btn" onclick="go('week')">Go to today's training →</button></div></section><section class="panel"><h2>Your reason</h2><p class="muted mini">Write why you want to finish these races and improve your physique. Keep it personal and specific.</p><textarea aria-label="My reason for training" placeholder="I'm doing this because…" onchange="db.settings.why=this.value;save()">${esc(why)}</textarea>${why?'<p class="mini muted">Saved automatically on this device.</p>':''}</section><section class="panel"><h2>Three things that matter</h2><div class="mindset-steps"><div class="stat"><label>01 · SHOW UP</label><strong>Do the next session</strong><p class="mini muted">Follow the plan, even when motivation is low.</p></div><div class="stat"><label>02 · TRAIN SMART</label><strong>Respect easy days</strong><p class="mini muted">Consistency requires recovery, not punishment.</p></div><div class="stat"><label>03 · STAY PATIENT</label><strong>Play the long game</strong><p class="mini muted">Half PR, 100 km, marathon, and a stronger physique.</p></div></div></section><section class="panel"><h2>When you don't feel like training</h2><div class="mindset-note">Check your recovery first. If you're healthy but unmotivated, start the warm-up and reassess. If you're injured, ill, or significantly fatigued, adjust the session instead of forcing it.</div></section>`}
+function cleanInstructionText(value){
+ return String(value||'').replace(/\bR\.?P\.?E\.?\s*\d+(?:[–-]\d+)?\b/gi,'').replace(/\s{2,}/g,' ').replace(/\s+([,.;])/g,'$1').trim();
+}
+function instructionList(value){
+ let str=cleanInstructionText(value).replace(/^RUN PRESCRIPTION\s*[·:]\s*/i,'');
+ str=str.replace(/\s+GYM:\s*/g,'; GYM: ');
+ const chunks=str.split(/;\s*/).map(x=>x.trim()).filter(Boolean);
+ return `<ol class="instruction-list">${chunks.map(c=>`<li>${esc(c)}</li>`).join('')}</ol>`;
+}
+function todayFocus(){
+ const now=iso(new Date()),w=weekMonday(new Date()),i=Math.max(0,Math.min(6,dayDiff(w,now)));
+ const d=prescribedDays(w)[i],l=logFor(now);
+ const distance=d.target?`${Number(d.target).toFixed(1)} km`:(d.type==='rest'?'Recovery day':'Strength / mobility');
+ return `<section class="panel focus-panel"><div class="focus-top"><div><div class="eyebrow">YOUR SESSION · ${esc(fmt(now))}</div><h2>${esc(d.title)}</h2></div></div>
+ <div class="focus-metrics"><div><span>PLANNED</span><strong>${esc(distance)}</strong></div><div><span>TARGET PACE</span><strong>${esc(d.effort||'Recovery / gym')}</strong></div></div>
+ <div class="focus-detail">${instructionList(d.detail)}</div>
+ <div class="row"><button class="btn" onclick="selectedWeek=weekMonday(new Date());go('week');setTimeout(()=>{const el=document.getElementById('workout-${now}');if(el)el.scrollIntoView({behavior:'smooth',block:'start'})},50)">View & log workout →</button><span class="small">${l.done?'✓ Marked complete':'Log after training'}</span></div></section>`;
+}
+function htmlHome(){let today=iso(new Date());let p=phaseAt(today);let wk=weekMonday(new Date());let logs=Array.from({length:7},(_,i)=>logFor(plus(wk,i)));let completed=logs.filter(x=>x.done).length;let km=logs.reduce((n,x)=>n+(x.done?(parseFloat(x.distance)||0):0),0);return todayFocus()+`<section class="panel hero compact-hero"><div class="eyebrow">THE MISSION</div><h1>SHOW UP. STACK THE DAYS.</h1><p class="muted">Half marathon PR → 100 km backyard ultra → Detroit Marathon finish. Build a stronger physique along the way.</p><div class="row"><span class="pill">CURRENT PHASE · ${esc(p.name)}</span><button class="btn" onclick="go('week')">Open my week →</button></div></section><div class="grid"><div class="stat"><label>THIS WEEK</label><strong>${km.toFixed(1)} km</strong><div class="small">Logged distance</div></div><div class="stat"><label>COMPLETED</label><strong>${completed}/7</strong><div class="small">Daily sessions</div></div><div class="stat"><label>PHASE</label><strong style="font-size:16px">${esc(p.name.split(' ').slice(0,2).join(' '))}</strong><div class="small">Current focus</div></div></div><section class="panel"><h2>Race countdown</h2>${RACES.map(r=>`<div class="race"><div><strong>${esc(r.name)}</strong><div class="small">${fmt(r.date)} · ${esc(r.goal)}</div></div><em>${dayDiff(today,r.date)>0?dayDiff(today,r.date)+' days':dayDiff(today,r.date)===0?'RACE DAY':'Completed'}</em></div>`).join('')}</section><section class="panel"><div class="row"><h2>This week's completion</h2><b>${Math.round(completed/7*100)}%</b></div><div class="progress"><div style="width:${completed/7*100}%"></div></div><p class="muted mini">The checkboxes and run stats update automatically from My Week.</p></section><section class="panel"><div class="row"><div><div class="mindset-meta">TODAY’S MINDSET</div><div style="font-size:19px;font-weight:800;margin-top:7px;max-width:620px">“${esc(dailyQuote(today))}”</div></div><button class="btn secondary" onclick="go('motivation')">Mindset →</button></div></section>`}
+function htmlWeek(){let p=phaseAt(selectedWeek),days=prescribedDays(selectedWeek);let total=0,done=0;for(let i=0;i<7;i++){let l=logFor(plus(selectedWeek,i));total+=l.done?(parseFloat(l.distance)||0):0;if(l.done)done++}return `<section class="panel"><div class="row"><div><div class="tag">Training calendar</div><h2 style="margin-top:6px">${fmt(selectedWeek)} – ${fmt(plus(selectedWeek,6))}</h2></div><div class="navweek"><button aria-label="Previous week" onclick="moveWeek(-7)" ${selectedWeek<=START?'disabled':''}>←</button><button class="week-current-btn" aria-label="Jump to current week" title="Jump to current week" ${selectedWeek===weekMonday(new Date())?'disabled aria-current="date"':''} onclick="selectedWeek=weekMonday(new Date())<START?START:weekMonday(new Date());render()">${selectedWeek===(weekMonday(new Date())<START?START:weekMonday(new Date()))?'Current week':'This week ↩'}</button><button aria-label="Next week" onclick="moveWeek(7)">→</button></div></div><div class="row"><span class="pill">${total.toFixed(1)} km logged</span><span class="pill">${done}/7 completed</span><span class="pill">${esc(weekPrescription(selectedWeek).label)}</span></div><div class="progress" style="margin-top:12px"><div style="width:${done/7*100}%"></div></div></section><section class="panel"><div class="row"><div><div class="tag">Day-by-day prescription</div><h2 style="margin:6px 0 0">Your workouts</h2></div><span class="pill">Distances in km · paces per km</span></div><p class="muted mini">Open each day to see your distance, pace, workout steps, and logging fields. Adjust for recovery and conditions.</p><div class="hint"><b>Adaptive plan:</b> ${esc(adaptiveTarget(selectedWeek,days.reduce((n,d)=>n+(d.target||0),0),weekPrescription(selectedWeek).block).reason)}. Completed workouts stay logged exactly as entered.</div><div class="field"><label>Override this week's total distance (km) · leave blank for automatic</label><input type="number" inputmode="decimal" min="0" step="0.1" value="${esc(adaptiveState().weekOverrides[selectedWeek]??'')}" placeholder="Automatic" onchange="overrideWeek('${selectedWeek}',this.value)"></div>${days.map((d,i)=>{let date=plus(selectedWeek,i),l=logFor(date);return `<article id="workout-${date}" class="workout-card ${l.done?'completed':''}"><div class="day"><div class="workout-type">${d.target?'Running prescription':d.lift?'Strength training':'Recovery / schedule'}</div><div class="workout-top"><div><div class="day-title">${DAYN[i]} · ${fmt(date)} — ${esc(d.title)}</div></div><label class="check"><input type="checkbox" ${l.done?'checked':''} onchange="logField('${date}','done',this.checked)">Done</label></div>${d.target?`<div class="workout-metrics"><div class="workout-metric"><span>Planned distance</span><strong>${esc(d.target)} km</strong></div><div class="workout-metric"><span>Target pace</span><strong>${esc(d.effort||'Easy conversational')}</strong></div></div>`:''}${d.target&&!['2027-05-30','2027-08-01','2027-10-17'].includes(date)?`<div class="fields"><div class="field"><label>Override run distance (km)</label><input type="number" min="0" step="0.1" placeholder="Automatic" value="${esc(adaptiveState().dayOverrides[date]?.target??'')}" onchange="overrideDay('${date}','target',this.value)"></div><div class="field"><label>Override target pace</label><input placeholder="Automatic" value="${esc(adaptiveState().dayOverrides[date]?.effort??'')}" onchange="overrideDay('${date}','effort',this.value)"></div></div>`:''}<div class="workout-steps"><b>${d.target?'Your workout':'Workout instructions'}</b>${instructionList(d.detail)}</div><div class="workout-log-title">Record your session</div>${d.type!=='gym'&&d.type!=='rest'?`<div class="fields"><div class="field"><label>Distance (km)</label><input inputmode="decimal" type="number" min="0" step="0.01" value="${esc(l.distance||'')}" placeholder="8.20" onchange="logField('${date}','distance',this.value)"></div><div class="field"><label>Time</label><input value="${esc(l.time||'')}" placeholder="52:24" onchange="logField('${date}','time',this.value)"></div><div class="field"><label>Avg pace /km</label><input value="${esc(l.pace||'')}" placeholder="5:30" onchange="logField('${date}','pace',this.value)"></div><div class="field"><label>Avg HR (bpm)</label><input inputmode="numeric" type="number" min="0" value="${esc(l.hr||'')}" placeholder="145" onchange="logField('${date}','hr',this.value)"></div></div>`:''}<div class="field"><label>Workout notes</label><textarea placeholder="How did it feel? Any changes?" onchange="logField('${date}','notes',this.value)">${esc(l.notes||'')}</textarea></div>${d.lift?`<p class="mini muted">${esc(gymDose(date,d.lift).label)} · Gym session: <button class="btn secondary" onclick="openLift('${date}','${d.lift}')">Log exercises →</button></p>`:''}</div></article>`}).join('')}</section><div class="hint">Weekly distances use simple 0.5-km steps. Adaptive changes require a sufficiently complete logged week; otherwise targets are provisional. They are not mandatory quotas. Progress gradually, and adjust training if you feel unwell or have pain. No automatic jump to high mileage.</div>`}
+function htmlPlan(){let today=iso(new Date());return `<section class="panel hero"><div class="eyebrow">Annual macrocycle</div><h1>THREE START LINES.<br>ONE SYSTEM.</h1><p>Speed → endurance → recovery → marathon completion.</p></section><section class="panel"><h2>Periodized phases</h2>${PHASES.map(p=>`<div class="phase ${today>=p.start&&today<=p.end?'active':''}"><b>${esc(p.name)}</b><small>${fmt(p.start)} – ${fmt(p.end)} · ${esc(p.range)}</small><p class="mini" style="margin:5px 0 0">${esc(p.goal)}</p></div>`).join('')}</section><section class="panel"><h2>Training intensity guide</h2><div class="grid two"><div class="stat"><label>RECOVERY</label><strong style="font-size:15px">Very easy</strong><p class="mini muted">Full sentences, light effort</p></div><div class="stat"><label>EASY</label><strong style="font-size:15px">Conversational</strong><p class="mini muted">Most weekly mileage</p></div><div class="stat"><label>MARATHON</label><strong style="font-size:15px">Controlled</strong><p class="mini muted">Comfortably steady</p></div><div class="stat"><label>THRESHOLD</label><strong style="font-size:15px">Comfortably hard</strong><p class="mini muted">Not an all-out race</p></div></div><p class="muted mini">Training pace guide: easy 5:15–5:55/km, recovery 5:45–6:20+/km, threshold 4:35–4:45/km, intervals 3:55–4:15/km. Use effort over pace, especially when tired or in poor conditions.</p></section><section class="panel"><h2>Race priorities</h2><p><b>Half:</b> build threshold and long-run endurance; use a 5K/10K tune-up before setting your PR pace.</p><p><b>Backyard:</b> prioritize repeatable easy loops, walking, back-to-back sessions and gut training.</p><p><b>Detroit:</b> allow 100 km recovery to dictate the rebuild. Completion comes before time.</p></section>`}
+function gymDose(date,type){const block=PHASES.findIndex(p=>date>=p.start&&date<=p.end);const raceNear=RACES.some(r=>Math.abs(dayDiff(date,r.date))<=9);if(block===4||block===7||raceNear)return {label:'Recovery / race week',mode:'skip',tip:'No scheduled heavy lifting. Optional easy mobility only; resume when recovered.'};if(block===3||block===6||block===9)return {label:'Taper — optional maintenance',mode:'light',tip:'If fresh, do only 1–2 easy sets per exercise, well short of failure. Skip lower body if legs feel heavy.'};if(type==='lower'&&[2,5,8].includes(block))return {label:'Reduced lower-body session',mode:'reduced',tip:'Use 1–2 sets per exercise, moderate loads and no failure. Skip if sore after quality running.'};if([2,5,8].includes(block))return {label:'Upper-body maintenance',mode:'maintenance',tip:'Use 2 sets per exercise; maintain load and technique, without training to failure.'};return {label:'Muscle-building session',mode:'full',tip:'Work through the listed sets. Keep 1–3 reps in reserve; increase weight only after all sets reach the top of the rep range cleanly.'};}
+function gymPrescription(ex,dose){if(dose.mode==='skip')return 'Optional mobility only';if(dose.mode==='light')return '1–2 easy sets';if(dose.mode==='reduced')return '1–2 sets · '+ex[1].replace(/^\d+ × /,'');if(dose.mode==='maintenance')return '2 sets · '+ex[1].replace(/^\d+ × /,'');return ex[1];}
+function htmlStrength(){let date=iso(new Date());let s=db.uiLiftDate||date;let type=db.uiLiftType||'upperA';let vals=db.lifts[s+'_'+type]||{};let dose=gymDose(s,type);let names={upperA:'Upper A',lower:'Lower Body',upperB:'Upper B'};return `<section class="panel"><div class="tag">Gym progression</div><h2 style="margin-top:7px">Strength log</h2><div class="fields"><div class="field"><label>Date</label><input type="date" value="${esc(s)}" onchange="db.uiLiftDate=this.value;save();render()"></div><div class="field"><label>Workout</label><select onchange="db.uiLiftType=this.value;save();render()">${Object.keys(names).map(k=>`<option value="${k}" ${k===type?'selected':''}>${names[k]}</option>`).join('')}</select></div></div><div class="hint"><b>${esc(dose.label)}</b> — ${esc(dose.tip)}</div><p class="muted mini">Record your completed reps and weight. Example: 10/9/8 means three sets. Use the same units each session.</p><div class="exercise"><b>Exercise / prescription</b><b class="small">Reps</b><b class="small">Weight</b><b></b></div>${STRENGTH[type].map((ex,i)=>`<div class="exercise"><span><b>${esc(ex[0])}</b><small>${esc(gymPrescription(ex,dose))}</small><small style="color:#ff9396">Suggested next weight: ${esc(gymSuggestion(type,i,s).value||'—')} · ${esc(gymSuggestion(type,i,s).why)}</small><small><label>Override suggested weight <input style="max-width:125px;min-height:34px" placeholder="Auto" value="${esc(adaptiveState().gymOverrides[type+'_'+i]??'')}" onchange="gymManual('${type}',${i},this.value)"></label></small></span><input placeholder="e.g. 10/9/8"  value="${esc(vals[i]?.reps||'')}" onchange="liftField('${s}','${type}',${i},'reps',this.value)"><input placeholder="lb / kg" value="${esc(vals[i]?.weight||'')}" onchange="liftField('${s}','${type}',${i},'weight',this.value)"><label class="check"><input aria-label="Completed ${esc(ex[0])}" type="checkbox" ${vals[i]?.done?'checked':''} onchange="liftField('${s}','${type}',${i},'done',this.checked)"></label></div>`).join('')}<div class="subtle"></div><div class="field"><label>Gym notes</label><textarea onchange="liftNotes('${s}','${type}',this.value)">${esc(vals.notes||'')}</textarea></div></section><section class="panel"><h2>How to progress</h2><p class="mini">Start with a weight you can control. When you reach the top of the rep range on every set with good technique, increase the weight by the smallest available amount next time. Rest 2–3 minutes on presses, rows and split squats; 60–90 seconds on smaller exercises. Warm up for 5–10 minutes. Keep lower-body lifting lighter during demanding running weeks.</p></section>`}
+function htmlUltra(){return `<section class="panel hero"><div class="eyebrow">August 1 · Backyard ultra</div><h1>15 LAPS.<br>100.59 KM.</h1><p>One 6.7056 km / 4.1667-mile loop starts every hour. Complete it inside the hour and be back on the line for the next start.</p></section><section class="panel"><h2>Loop pacing calculator</h2><div class="field"><label>Planned minutes per loop: <b id="loopLabel">52</b></label><input id="loopRange" type="range" min="46" max="58" value="52" oninput="loopCalc(this.value)"></div><div class="grid two" style="margin-top:15px"><div class="stat"><label>REST WINDOW</label><strong id="restCalc">8 min</strong></div><div class="stat"><label>AVERAGE LOOP PACE</label><strong id="paceCalc">7:45/km</strong></div></div><p class="mini muted">Try 50–54-minute laps initially. This includes walking and is a practice target, not a race-day guarantee.</p></section><section class="panel"><h2>Run/walk + aid station</h2><ol class="list"><li>Start conservatively. Trial 8–10 min easy run / 1–2 min brisk walk.</li><li>Walk hills early; preserve legs for later loops.</li><li>At the finish, refill bottle and eat first.</li><li>Check feet, socks, temperature and gear.</li><li>Return to the start line with 1–2 minutes to spare.</li></ol></section><section class="panel"><h2>Fuel and hydration</h2><p><b>Carbs:</b> Practice 40–60 g/hour initially, potentially 60–90 g/hour if tolerated. Begin early.</p><p><b>Fluids:</b> Adjust for thirst, weather and sweat losses; avoid overdrinking.</p><p><b>Sodium:</b> Individualize; don't blindly take large amounts.</p><p><b>Food ideas:</b> Gels, sports drink, bananas, potatoes, rice, pretzels and familiar snacks.</p><p class="mini muted">Practice nutrition on long runs and hourly-loop simulations. A 500 mL bottle may need refilling often.</p></section><section class="panel"><h2>Training rehearsals</h2><div class="hint">Practice 3–5 hourly loops (20–34 km), not a 100 km training run. Replace your usual weekend mileage with the simulation. Rehearse lighting, shoes, chair, food and restarting on the hour.</div><p>Back-to-back easy days: examples include 18 km Saturday + 10 km Sunday, progressing only when recovered.</p></section><section class="panel"><h2>Race-day checklist</h2>${['Running shoes + spare pair','Socks, blister care, spare clothes','Headlamp + spare battery','Chair, towel, shelter','Water, sports drink, familiar food','Charging cable / watch','Crew or support plan','Weather layers and sun protection'].map((x,i)=>`<label class="check" style="display:flex;margin:12px 0"><input type="checkbox" ${db.reviews['gear'+i]?'checked':''} onchange="db.reviews['gear${i}']=this.checked;save()">${x}</label>`).join('')}</section>`}
+function htmlStats(){let entries=Object.entries(db.logs).filter(([,v])=>v.done).sort((a,b)=>a[0].localeCompare(b[0]));let distance=entries.reduce((n,[,v])=>n+(v.done?(parseFloat(v.distance)||0):0),0);let finished=entries.filter(([,v])=>v.done).length;let weekly={};for(let [date,v] of entries){let k=weekMonday(dateUTC(date));weekly[k]=(weekly[k]||0)+(parseFloat(v.distance)||0)}let bars=Object.entries(weekly).slice(-10);let max=Math.max(1,...bars.map(x=>x[1]));return `<div class="grid"><div class="stat"><label>ALL LOGGED</label><strong>${distance.toFixed(1)} km</strong></div><div class="stat"><label>DONE</label><strong>${finished}</strong><div class="small">Sessions</div></div><div class="stat"><label>WEEKS</label><strong>${bars.length}</strong><div class="small">With runs</div></div></div><section class="panel"><h2>Weekly mileage history</h2>${bars.length?bars.map(([w,km])=>`<div style="margin:14px 0"><div class="row mini"><b>${fmt(w)}</b><span>${km.toFixed(1)} km</span></div><div class="bar" style="margin-top:6px"><i style="width:${km/max*100}%"></i></div></div>`).join(''):'<p class="muted">Log your first runs in My Week to see the chart.</p>'}</section><section class="panel"><h2>Personal bests</h2><p class="mini muted">Verified 10K PB: 44:08. The October 2026 43:18 screenshot was identified as an erroneous result and is not a PB.</p>${[['five','5K'],['ten','10K'],['half','Half Marathon'],['marathon','Marathon']].map(([k,name])=>`<div class="field" style="margin-bottom:12px"><label>${name}</label><input value="${esc(db.prs[k]||'')}" placeholder="hh:mm:ss" onchange="db.prs['${k}']=this.value;save()"></div>`).join('')}</section>`}
+function htmlSettings(){let s=db.settings;return `<section class="panel"><h2>Running schedule</h2><p class="muted mini">Choose four or five running days per week.</p><div class="field"><label>Runs per week</label><select onchange="db.settings.runDays=this.value;save();render()"><option value="4" ${s.runDays==='4'?'selected':''}>4 days</option><option value="5" ${s.runDays==='5'?'selected':''}>5 days</option></select></div></section><section class="panel"><h2>Imported running history</h2><p class="mini muted">Six previously shared runs are added once, without overwriting any existing logs. Dates: Sep 19; Oct 7, 9, 12, 14, and 16, 2026. Only details previously supplied are filled in. Your other runs can be entered normally. The app uses completed entries to personalize future weeks.</p></section><section class="panel"><h2>Automatic progression</h2><p class="mini muted">Auto mode adjusts future weekly running targets from completed logged runs, without catch-up increases after missed weeks. It never edits your past logs. Manual overrides always take priority.</p><label class="check" style="display:flex;align-items:center;gap:12px;margin:12px 0"><input type="checkbox" ${adaptiveState().enabled?'checked':''} onchange="adaptiveToggle(this.checked)"> Enable automatic training adjustments</label><label class="check" style="display:flex;align-items:center;gap:12px;margin:12px 0"><input type="checkbox" ${adaptiveState().autoRacePace?'checked':''} onchange="setAutoRacePace(this.checked)"> Automatically adjust pace after a verified faster 5K or 10K result</label><p class="mini muted">Enter your verified race result in Progress. Adjustments are capped at 15 seconds/km and can be overridden below. Do not use unverified GPS results.</p><div class="field"><label>Training pace adjustment (seconds per km; negative = faster)</label><input type="number" step="5" min="-30" max="30" value="${esc(adaptiveState().paceOffset||0)}" onchange="adaptiveState().paceOffset=Math.max(-30,Math.min(30,Number(this.value)||0));save();render()"></div><p class="mini muted">Ordinary training runs do not automatically change pace; optional verified 5K/10K results can make small adjustments. A manually overridden distance replaces that day's structured steps to prevent contradictions. You control the pace adjustment. Gym suggestions use completed reps and weight, with a per-exercise manual override. Do not increase loads when form deteriorates.</p></section><section class="panel"><h2>Backup & restore</h2><p class="mini muted">Everything is saved on this device in this browser. Export a backup weekly and before publishing updates. It does not automatically sync across your phone, computer, or GitHub updates. Export backups regularly before clearing browser data.</p><div class="row"><button class="btn" onclick="exportData()">Export JSON backup</button><label class="btn secondary" style="cursor:pointer">Import backup<input type="file" accept="application/json,.json" style="display:none" onchange="importData(this.files[0])"></label></div><div class="subtle"></div><button class="btn danger" onclick="resetData()">Erase local tracking data</button></section><section class="panel"><h2>About this plan</h2><p class="mini">Race dates: May 30, August 1, October 17, 2027. The schedules are phase templates, not a medically individualized training prescription. Follow symptoms and recovery, not a fixed mileage ceiling.</p></section>`}
+
+// Previously shared activities. Imported only if the date has no existing run log.
+const KNOWN_RUNS=[
+ {date:'2026-09-19',distance:15, time:'1:12:28',note:'15K race · previously shared official result'},
+ {date:'2026-10-07',distance:7.58,note:'Previously shared run · time not provided'},
+ {date:'2026-10-09',distance:2.4,note:'Previously shared short run · time not provided'},
+ {date:'2026-10-12',distance:13.05,pace:'5:03',note:'Previously shared long run'},
+ {date:'2026-10-14',distance:8.2,time:'52:24',pace:'6:23',hr:'164',note:'Track intervals · 6 × 600 m, walk-back recoveries'},
+ {date:'2026-10-16',distance:9.1,time:'47:01',pace:'5:10',note:'Evening run · began faster in cold, settled to easy pace'}
+];
+function seedKnownRuns(){
+ db.logs ||= {};
+ db.runHistoryImport ||= {version:0};
+ if(db.runHistoryImport.version>=1)return;
+ for(const r of KNOWN_RUNS){
+   const old=db.logs[r.date];
+   // Never replace any user-saved entry, including partial notes.
+   if(old&&Object.keys(old).length)continue;
+   db.logs[r.date]={done:true,distance:String(r.distance),...(r.time?{time:r.time}:{}),
+     ...(r.pace?{pace:r.pace}:{}),...(r.hr?{hr:r.hr}:{}),
+     notes:r.note+' · Imported from runs you previously shared'};
+ }
+ db.runHistoryImport={version:1,dates:KNOWN_RUNS.map(r=>r.date)};
+ save();
+}
+seedKnownRuns();
+// Adaptive, date-specific planning. Distances are provisional examples; the baseline input was removed by request.
+const BLOCKSTART='2026-10-19';
+function weekIndex(w){return Math.max(0,Math.floor(dayDiff(BLOCKSTART,w)/7))}
+function actualWeekKm(w){return Array.from({length:7},(_,i)=>((db.logs[plus(w,i)]||{}).done?Math.max(0,parseFloat((db.logs[plus(w,i)]||{}).distance)||0):0)).reduce((a,b)=>a+b,0)}
+function completedRunCount(w){return Array.from({length:7},(_,i)=>{const d=db.logs[plus(w,i)]||{};return d.done&&Number(d.distance)>0?1:0}).reduce((a,b)=>a+b,0)}
+function weekPrescription(w){
+ const p=phaseAt(w),idx=weekIndex(w),block=PHASES.indexOf(p),blockStart=weekMonday(dateUTC(p.start)),bi=Math.max(0,Math.floor(dayDiff(blockStart,w)/7));
+ const deload=bi%4===3;let mult=deload?.78:1,kind=p.name,base=Number(db.settings.baseline),lr=Number(db.settings.longRun);
+ let desired=0;
+ if(block===0)desired=34+Math.min(bi,9)*1.5;
+ else if(block===1)desired=38+Math.min(bi,12)*1.4;
+ else if(block===2)desired=52+Math.min(bi,6)*1.5;
+ else if(block===3)desired=bi===0?36:22;
+ else if(block===4)desired=bi===0?0:18;
+ else if(block===5)desired=50+bi*3;
+ else if(block===6)desired=[44,31,17][Math.min(bi,2)];
+ else if(block===7)desired=[0,0,12][Math.min(bi,2)];
+ else if(block===8)desired=30+bi*4;
+ else desired=bi===0?32:18;
+ if([0,1,2,5,8].includes(block))desired*=mult;
+ // Initial ramp is capped by user-entered mileage, never treated as a promise of fitness.
+ const weeksSinceStart=Math.max(0,idx);
+ const safeCap=base>0?base*Math.pow(1.045,weeksSinceStart):null;
+ let target=safeCap===null?null:Math.max(0,Math.round(Math.min(desired,safeCap)));
+ const prior=actualWeekKm(plus(w,-7)),prior2=actualWeekKm(plus(w,-14));
+ // Only use completed weeks in the past; don't let old or future logs determine current training.
+ if(w<=weekMonday(new Date())&&prior>0){
+  const recentCeiling=Math.round(prior*1.12);
+  target=target===null?null:Math.min(target,recentCeiling);
+  if(prior2>0&&prior<prior2*.7)target=Math.min(target,Math.round(prior*1.05));
+ }
+ return {block,bi,deload,target,desired:Math.round(desired),label:target===null?'Provisional distances':`${target} km example${deload?' · recovery week':''}`,lr:lr>0?lr:null};
+}
+
+// Adaptive engine: only completed historical weeks; manual overrides always win.
+db.adaptive ||= {enabled:true,weekOverrides:{},dayOverrides:{},gymOverrides:{},paceOffset:0};
+function adaptiveState(){db.adaptive ||= {enabled:true,weekOverrides:{},dayOverrides:{},gymOverrides:{},paceOffset:0};let a=db.adaptive;a.weekOverrides||={};a.dayOverrides||={};a.gymOverrides||={};return a}
+function weekComplete(w){return plus(w,7)<=iso(new Date())}
+function priorMileage(w){
+ let arr=[];for(let k=1;k<=4;k++){let prev=plus(w,-7*k);if(!weekComplete(prev)||prev>=weekMonday(new Date()))continue;
+ let km=actualWeekKm(prev),runs=completedRunCount(prev);
+ if(km>0&&runs>=Math.min(3,Number(db.settings.runDays)||4))arr.push({km,runs,week:prev});
+ }return arr;
+}
+function adaptiveTarget(w,planned,block){
+ const a=adaptiveState(),manual=Number(a.weekOverrides[w]);
+ if(a.weekOverrides[w]!==undefined&&Number.isFinite(manual)&&manual>=0)return {total:manual,reason:'Manual weekly target'};
+ if(!a.enabled||![0,1,2,5,8].includes(block))return {total:planned,reason:'Scheduled phase plan'};
+ // No inferred baseline from scattered runs; progress only with logged completed weeks.
+ const prior=priorMileage(w);if(!prior.length)return {total:planned,reason:'Provisional distances · fewer than 3 completed runs in a week; no automatic reduction from partial logs'};
+ const latest=prior[0],previous=prior[1],currentWeek=weekMonday(new Date());
+ if(plus(w,-7)>='2026-10-19'&&latest.week!==plus(w,-7)&&w>currentWeek)return {total:planned,reason:'Training gap detected · use provisional distances, adjust down manually if needed; no catch-up running'};
+ // Do not revise already-started weeks: completed sessions should never shift their own targets.
+ if(w<=currentWeek)return {total:planned,reason:'Current/past week uses the scheduled phase plan; completed logs never change'};
+ let ceiling=latest.km*1.08;
+ if(previous){
+   if(latest.km<previous.km*.75)ceiling=latest.km*1.02;
+   else if(latest.km>previous.km*1.3)ceiling=Math.min(ceiling,previous.km*1.12);
+ }
+ // Missing training days should not trigger catch-up mileage.
+ if(latest.runs<Math.min(4,Number(db.settings.runDays)||4))ceiling=Math.min(ceiling,latest.km);
+ if(previous&&latest.km<previous.km*.65)ceiling=Math.min(ceiling,latest.km);
+ let total=Math.min(planned,ceiling);
+ return {total:Math.round(total*10)/10,reason:`Auto-adjusted from ${latest.km.toFixed(1)} km logged (${latest.week}); conservative weekly ceiling`};
+}
+function overrideDay(date,field,value){
+ const a=adaptiveState();a.dayOverrides[date]||={};
+ if(value==='')delete a.dayOverrides[date][field];else if(field==='target'){const n=Number(value);if(!Number.isFinite(n)||n<0||n>100){alert('Enter a distance from 0 to 100 km.');return;}a.dayOverrides[date][field]=n;}else a.dayOverrides[date][field]=String(value).slice(0,80);
+ if(!Object.keys(a.dayOverrides[date]).length)delete a.dayOverrides[date];save();render();
+}
+function overrideWeek(w,value){
+ const a=adaptiveState();if(value==='')delete a.weekOverrides[w];else {const n=Number(value);if(!Number.isFinite(n)||n<0||n>180){alert('Enter a weekly distance from 0 to 180 km.');return;}a.weekOverrides[w]=n;}save();render();
+}
+function adaptiveToggle(v){adaptiveState().enabled=v;save();render()}
+function paceToSeconds(t){let m=String(t).match(/^(\d+):(\d\d)$/);return m?Number(m[1])*60+Number(m[2]):null}
+function secondsToPace(s){s=Math.max(180,Math.round(s));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
+function raceSeconds(raw){const parts=String(raw||'').trim().split(':').map(Number);if(parts.length<2||parts.length>3||parts.some(x=>!Number.isFinite(x)||x<0)||parts.slice(1).some(x=>x>=60))return null;const n=parts.reduce((a,x)=>a*60+x,0);return n>0?n:null}
+function autoPaceOffset(){
+ const a=adaptiveState();if(!a.autoRacePace)return 0;
+ const five=raceSeconds(db.prs.five),ten=raceSeconds(db.prs.ten);
+ // Established reference performances: 5K 21:11 and 10K 44:08. No speculative improvement.
+ const reference5=1271,reference10=2648;
+ const gain5=five&&five<reference5?(reference5-five)/5:0;
+ const gain10=ten&&ten<reference10?(reference10-ten)/10:0;
+ // Only adjust from a confirmed faster result, capped at 15 seconds/km.
+ return -Math.min(15,Math.round(Math.max(gain5,gain10)*.65));
+}
+function setAutoRacePace(v){adaptiveState().autoRacePace=v;save();render()}
+function adaptivePace(text){
+ const a=adaptiveState(),offset=Math.max(-30,Math.min(30,(Number(a.paceOffset)||0)+autoPaceOffset()));
+ if(!a.enabled||!offset)return text;
+ return String(text).replace(/(\d+:\d\d)(?=[–-]|\/km)|(\d+:\d\d)(?=\/km)/g,m=>secondsToPace((paceToSeconds(m)||300)+offset));
+}
+function gymSuggestion(type,index,date){
+ const a=adaptiveState(),id=type+'_'+index;
+ if(a.gymOverrides[id]!==undefined)return {value:String(a.gymOverrides[id]),why:'Manual target'};
+ const all=Object.keys(db.lifts).filter(k=>k.endsWith('_'+type)&&k.slice(0,10)<date).sort().reverse();
+ for(const key of all){
+  const v=db.lifts[key]?.[index];if(!v||!v.done||!v.weight||!v.reps)continue;
+  const weight=Number(v.weight),reps=String(v.reps).split('/').map(x=>Number(x.trim()));
+  if(!Number.isFinite(weight)||weight<=0||!reps.length||reps.some(x=>!Number.isFinite(x)||x<=0))continue;
+  const spec=STRENGTH[type][index][1],range=spec.match(/(\d+)[–-](\d+)/),top=range?Number(range[2]):null;
+  // The app does not know whether the user records lb or kg; recommend repeating the same unit.
+  const required=Number((spec.match(/^(\d+) ×/)||[])[1])||2;
+  if(top&&reps.length>=required&&reps.every(n=>n>=top))return {value:String(Math.round(weight*1.025*2)/2),why:'Consider the smallest available increase only if all reps were controlled'};
+  return {value:String(weight),why:'Repeat current weight until all sets reach top reps'};
+ }
+ return {value:'',why:'Log a completed set to unlock suggestions'};
+}
+function gymManual(type,index,value){const a=adaptiveState(),key=type+'_'+index;if(value==='')delete a.gymOverrides[key];else {const n=Number(value);if(!Number.isFinite(n)||n<0||n>2000){alert('Enter a valid training weight.');return;}a.gymOverrides[key]=String(n);}save();render()}
+
+function prescribedDays(w){
+ const q=weekPrescription(w),block=q.block,bi=q.bi,deload=q.deload;
+ const ds=phaseDays(phaseAt(w)).map(d=>({...d}));
+ const runDays=db.settings.runDays==='5'?5:4;
+ const race={'2027-05-30':[21.1,'Half Marathon · PR attempt'],'2027-08-01':[100.59,'Backyard Ultra · 15 hourly loops'],'2027-10-17':[42.2,'Detroit Marathon · finish goal']};
+ // Phase-specific, provisional mileage. These are NOT individualized or guaranteed safe.
+ const desired=[34+Math.min(bi,9)*1.5,36+Math.min(bi,12)*1.3,47+Math.min(bi,6)*1.6,bi===0?31:20,0,44+bi*3,bi===0?35:bi===1?25:15,0,29+bi*3.5,bi===0?29:18][block];
+ const planned=Math.round(desired*(deload&&[0,1,2,5,8].includes(block)?.8:1)*10)/10;
+ const adaptation=adaptiveTarget(w,planned,block),total=adaptation.total;
+ let indexes=[],weights=[];
+ if(block===0){indexes=runDays===5?[0,2,3,4,5]:[0,2,4,5];weights=runDays===5?[.36,.23,.10,.17,.14]:[.39,.27,.18,.16];}
+ if(block===1){indexes=runDays===5?[0,2,4,5,6]:[0,2,4,5];weights=runDays===5?[.16,.24,.16,.34,.10]:[.18,.27,.19,.36];}
+ if(block===2){indexes=runDays===5?[0,2,3,4,5]:[0,2,4,5];weights=runDays===5?[.14,.23,.12,.15,.36]:[.16,.26,.18,.40];}
+ if(block===3){indexes=bi===1?[0,2,4]:[0,2,4,5];weights=bi===1?[.38,.40,.22]:[.26,.30,.18,.26];}
+ if(block===5){indexes=runDays===5?[1,2,3,5,6]:[1,2,5,6];weights=runDays===5?[.14,.17,.11,.38,.20]:[.17,.20,.42,.21];}
+ if(block===6){indexes=bi===2?[1,2,4]:[1,2,4,5];weights=bi===2?[.38,.40,.22]:[.20,.24,.14,.42];}
+ if(block===8){indexes=runDays===5?[1,2,3,4,5]:[1,2,4,5];weights=runDays===5?[.18,.22,.12,.14,.34]:[.21,.25,.17,.37];}
+ if(block===9){indexes=bi===1?[1,2,4]:[1,2,4,5];weights=bi===1?[.38,.40,.22]:[.22,.26,.16,.36];}
+ if(block===4||block===7){indexes=[];weights=[];}
+ // Three strength exposures in base/development; peak phases retain two upper-body sessions and optional reduced lower.
+ if([1,2,5,8].includes(block)){
+   const upperA=ds[1],upperB=ds[3];
+   upperA.lift='upperA';upperA.type=indexes.includes(1)?'both':'gym';upperA.title='Upper A';
+   upperB.lift='upperB';upperB.type=indexes.includes(3)?'both':'gym';upperB.title='Upper B';
+   if([1,2].includes(block)){
+      ds[2].lift='lower';ds[2].type=indexes.includes(2)?'both':'gym';
+   }else{
+      ds[4].lift='lower';ds[4].type=indexes.includes(4)?'both':'gym';
+   }
+ }
+ // Keep scheduled gym sessions, but do not display a run on a rest day.
+ ds.forEach((d,i)=>{
+   if(!indexes.includes(i)){
+    if(d.type==='both'){d.type='gym';d.title=d.lift==='lower'?'Lower body — light':d.lift==='upperA'?'Upper A':'Upper B';}
+    else if(d.type==='run'){d.type='rest';d.title='Rest / mobility';}
+    d.target=undefined;d.effort=undefined;
+   } else {
+    if(d.type==='gym'||d.type==='rest'){d.type=d.lift?'both':'run';}
+    d.target=0;
+   }
+ });
+ const weightTotal=weights.reduce((a,b)=>a+b,0)||1;
+ // Clean, human-friendly run distances: 0.5-km steps; no 7.3/9.7 km prescriptions.
+ // A manual weekly total may be any decimal, so its last run absorbs that difference.
+ indexes.forEach((i,j)=>ds[i].target=Math.max(0,Math.round(total*weights[j]/weightTotal*2)/2));
+ if(indexes.length){
+   const longIndex=indexes.includes(5)?5:indexes[0];
+   const delta=Math.round((total-indexes.reduce((sum,i)=>sum+ds[i].target,0))*10)/10;
+   ds[longIndex].target=Math.round((ds[longIndex].target+delta)*10)/10;
+   // For base weeks, make Saturday threshold a full workout, not a tiny leftover.
+ if(block===0&&indexes.includes(5)&&ds[5].target<6){
+   const donor=indexes.includes(0)?0:2;
+   const take=Math.min(6-ds[5].target,Math.max(0,ds[donor].target-10));
+   ds[5].target+=take;ds[donor].target-=take;
+ }
+ // Keep the quality run long enough for a real warm-up, workout and cool-down.
+   const qi=indexes.includes(2)?2:-1;
+   if(qi>=0&&[0,1,2].includes(block)&&ds[qi].target<8&&ds[longIndex].target>=10){
+     const transfer=Math.min(8-ds[qi].target,ds[longIndex].target-9);
+     ds[qi].target+=transfer;ds[longIndex].target-=transfer;
+   }
+ }
+ const pace={easy:'5:15–5:55/km',recovery:'5:45–6:20+/km',threshold:'4:35–4:45/km',interval:'3:55–4:15/km',steady:'4:55–5:15/km'};
+ const prettyKm=km=>Number(km.toFixed(1)).toString();
+ const easy=(km,kind='easy')=>({effort:pace[kind],detail:`Run ${prettyKm(km)} km at ${pace[kind]}. Keep the effort conversational.`});
+ const quality=(km,kind)=>{
+  const choices=kind==='speed'?[{n:6,m:400,rest:200},{n:5,m:600,rest:200},{n:4,m:800,rest:200}]:kind==='thresholdLong'?[{n:3,mins:10,restMin:2},{n:2,mins:15,restMin:3},{n:5,mins:5,restMin:2}]:[{n:2,mins:6,restMin:2},{n:3,mins:6,restMin:2},{n:2,mins:8,restMin:2}];
+  const v=choices[bi%choices.length];
+  if(kind==='speed'){
+   const work=v.n*v.m/1000,rec=(v.n-1)*v.rest/1000,warm=1.5,cool=km-work-rec-warm;
+   if(cool<1)return easy(km);
+   return {effort:pace.interval,detail:`Warm up: ${warm.toFixed(1)} km easy; Main set: ${v.n} × ${v.m} m at ${pace.interval}; Recovery: ${v.rest} m walk or jog between reps (${v.n-1} recovery breaks); Cool down: ${cool.toFixed(1)} km easy; Total: ${km.toFixed(1)} km.`};
+  }
+  const workKm=v.n*v.mins/(kind==='thresholdLong'?4.67:4.67),recKm=(v.n-1)*v.restMin/6.5,warm=1.5,cool=km-workKm-recKm-warm;
+  if(cool<1)return easy(km);
+  return {effort:pace.threshold,detail:`Warm up: ${warm.toFixed(1)} km easy; Main set: ${v.n} × ${v.mins} min at ${pace.threshold}; Recovery: ${v.restMin} min easy jog between reps (${v.n-1} recovery breaks); Cool down: easy until ${km.toFixed(1)} km total.`};
+ };
+ ds.forEach((d,i)=>{
+  const date=plus(w,i),r=race[date];
+  if(r){ds[i]={title:'RACE DAY',type:'run',target:r[0],effort:'Race-day strategy',detail:`${r[1]}. Follow your race plan; no fixed training pace.`};return;}
+  const km=d.target;
+  if(!(km>0)){
+   if(block===4||block===7){d.title='Recovery / optional walking';d.type='rest';d.detail='No scheduled running. Return gradually only when walking, sleep and daily activity feel normal. Do not force a mileage target.';}
+   else if(d.type==='rest')d.detail='Rest, walk, or do light mobility. No missed-workout catch-up.';
+   else if(d.type==='gym')d.detail='Complete the listed gym workout. Reduce leg training if it affects your running.';
+   return;
+  }
+  let x=easy(km),title=d.title;
+  if(deload&&[0,1,2,5,8].includes(block)&&!(block===0&&i===5))x=easy(km,'recovery');
+  else if(block===0&&i===2)x=quality(km,'speed');
+  else if(block===0&&i===5){
+   // Saturday is ALWAYS threshold in base phase; scale the reps to fit shorter runs.
+   if(km<6){
+     const warm=1.0,work=2*4/4.67,rec=1/6.5,cool=km-warm-work-rec;
+     if(cool>=0.6)x={effort:pace.threshold,detail:`Warm up: ${warm.toFixed(1)} km easy; Main set: 2 × 4 min at ${pace.threshold}; Recovery: 1 min easy jog between reps; Cool down: ${cool.toFixed(1)} km easy; Total: ${km.toFixed(1)} km.`};
+     else x={effort:pace.threshold,detail:`Warm up easy; Run 2 × 3 min at ${pace.threshold} with 1 min easy jog between; Cool down easy to ${km.toFixed(1)} km total.`};
+   }else {x=quality(km,'threshold');if(x.effort===pace.easy){const warm=1.5,work=2*5/4.67,rec=1/6.5,cool=km-warm-work-rec;x={effort:pace.threshold,detail:`Warm up: 1.5 km easy; Main set: 2 × 5 min at ${pace.threshold}; Recovery: 1 min easy jog; Cool down: ${Math.max(0,cool).toFixed(1)} km easy; Total: ${km.toFixed(1)} km.`};}}
+   d.title='Saturday threshold';
+  }
+  else if([1,2].includes(block)&&i===2)x=quality(km,block===2?'thresholdLong':'threshold');
+  else if(block===8&&i===2&&km>=7){let middle=Math.min(4,km-4);x={effort:pace.steady,detail:`Warm up: 2.0 km easy; Run ${middle.toFixed(1)} km at ${pace.steady}; Cool down: ${(km-2-middle).toFixed(1)} km easy; Total: ${km.toFixed(1)} km. Only include steady running if fully recovered from the ultra.`};}
+  else if(block===5&&i===5){
+   // 3 hourly loops = 20.12 km; never silently add simulation distance on top of the weekly plan.
+   const loops=Math.floor(km/6.7056);
+   if(bi===1&&loops>=3&&!deload){const loopKm=3*6.7056,extra=km-loopKm;x={effort:'Easy run/walk',detail:`Loop simulation: 3 × 6.7056 km, starting each loop on the hour; Run and walk at a comfortable pace; Use the time remaining each hour to eat, drink, and rest; ${extra>=1?`Remaining ${extra.toFixed(1)} km easy before or after the simulation to reach the scheduled total; skip it if needed and log actual distance.`:'No additional running required.'} Three loops total approximately 20.12 km; this simulation replaces the long run, not an extra workout.`};}
+   else if(bi===1&&loops>=2&&!deload){const loopKm=2*6.7056,extra=km-loopKm;x={effort:'Easy run/walk',detail:`Loop rehearsal: 2 × 6.7056 km starting on the hour; Use remaining time each hour to eat, drink and rest; ${extra>=.2?`Then ${extra.toFixed(1)} km easy to reach the planned ${km.toFixed(1)} km, only if comfortable.`:'Log the actual loop distance.'} This replaces your long run, not an additional workout.`};}
+   else x={effort:pace.recovery,detail:`Run/walk ${km.toFixed(1)} km at a comfortable, sustainable pace; Practice eating and drinking regularly; Walk breaks are part of the workout.`};
+  }
+  else if((block===3||block===6||block===9)&&i===5)x=easy(km,'recovery');
+  else if(i===4||i===6)x=easy(km,'recovery');
+  else if(i===5&&[1,2,8].includes(block))x=easy(km);
+  if(block===0&&i===4&&!deload)x.detail+=' Finish with 4 × 20 sec relaxed strides, walking 60–90 sec between. Include strides in the planned distance.';
+  d.effort=x.effort;
+  d.detail=x.detail+(d.lift?'; Gym: Complete your '+(d.lift==='lower'?'reduced lower-body':'upper-body')+' workout after running, or separate the sessions.':'');
+  if((i===2&&[0,1,2].includes(block))&&(x.effort===pace.easy||x.effort===pace.recovery))d.title='Easy aerobic + '+(d.lift?'light lower-body':'mobility');
+ });
+ // Race day must override the regular Sunday recovery slot and never be double-counted.
+ for(let i=0;i<7;i++){const r=race[plus(w,i)];if(r)ds[i]={title:'RACE DAY',type:'run',target:r[0],effort:'Race-day strategy',detail:`${r[1]}. Follow your race plan; no fixed training pace.`};}
+ ds.forEach((d,i)=>{
+  const date=plus(w,i),override=adaptiveState().dayOverrides[date]||{};
+  if(race[date])return;
+  if(override.target!==undefined&&d.type!=='gym'&&d.type!=='rest'){
+   d.target=override.target;if(override.target===0){d.type=d.lift?'gym':'rest';d.title=d.lift?'Strength only (manual)':'Rest (manual)';}d.detail=override.target===0?'No run scheduled (manual override).':`Run ${Number(override.target).toFixed(1)} km at a comfortable, controlled effort. Manual distance override replaces the original structured workout; restore Automatic to see the original session.`;
+  }
+  if(override.effort){d.effort=override.effort;if(d.target>0)d.detail+=` Target pace (manual): ${override.effort}.`;}
+  else if(d.effort)d.effort=adaptivePace(d.effort);
+  if(!override.effort)d.detail=adaptivePace(d.detail);
+ });
+ return ds;
+}
+
+const pages={home:htmlHome,week:htmlWeek,motivation:htmlMotivation,plan:htmlPlan,strength:htmlStrength,ultra:htmlUltra,stats:htmlStats,settings:htmlSettings};const GROUPS={week:['week','strength','plan','ultra'],stats:['stats'],settings:['settings']};
+const SUBLABEL={week:'My Week',strength:'Gym Log',plan:'Race Plan',ultra:'100K Guide',stats:'Results',settings:'Settings'};
+function primary(t){return ['week','strength','plan','ultra'].includes(t)?'week':['stats'].includes(t)?'stats':t}
+function render(){const active=primary(tab);document.querySelectorAll('.tab').forEach(b=>{b.classList.toggle('active',b.dataset.tab===active);b.setAttribute('aria-current',b.dataset.tab===active?'page':'false')});const items=GROUPS[active]||[];const sub=items.length>1?'<nav class="subnav" aria-label="'+(active==='week'?'Training tools':'Progress tools')+'">'+items.map(t=>'<button class="subtab '+(tab===t?'active':'')+'" onclick="go(\''+t+'\')">'+SUBLABEL[t]+'</button>').join('')+'</nav>':'';document.getElementById('content').innerHTML=sub+pages[tab]()+`<footer class="footer">LOCK IN · TRAIN WITH PURPOSE</footer>`;if(tab==='ultra')loopCalc(52)}function go(t){tab=t;render();window.scrollTo({top:0,behavior:'smooth'})}function moveWeek(n){selectedWeek=plus(selectedWeek,n);if(selectedWeek<START)selectedWeek=START;render()}function logField(s,k,v){if(k==='distance'&&v!==''&&(!Number.isFinite(Number(v))||Number(v)<0||Number(v)>200)){alert('Enter a valid distance between 0 and 200 km.');return;}if(k==='hr'&&v!==''&&(!Number.isFinite(Number(v))||Number(v)<30||Number(v)>250)){alert('Check the heart rate value.');return;}db.logs[s]||={};db.logs[s][k]=v;save();if(k==='done'||k==='distance')render()}function liftField(s,t,i,k,v){if(k==='weight'&&v!==''&&(!Number.isFinite(Number(v))||Number(v)<0||Number(v)>2000)){alert('Check the weight value.');return;}let key=s+'_'+t;db.lifts[key]||={};db.lifts[key][i]||={};db.lifts[key][i][k]=v;save()}function liftNotes(s,t,v){let key=s+'_'+t;db.lifts[key]||={};db.lifts[key].notes=v;save()}function openLift(s,t){db.uiLiftDate=s;db.uiLiftType=t;save();go('strength')}function loopCalc(v){let m=Number(v),pace=m/6.7056,pmin=Math.floor(pace),psec=Math.round((pace-pmin)*60);document.getElementById('loopLabel').textContent=m;document.getElementById('restCalc').textContent=60-m+' min';document.getElementById('paceCalc').textContent=pmin+':'+String(psec).padStart(2,'0')+'/km'}function exportData(){let b=new Blob([JSON.stringify({version:1,exportedAt:new Date().toISOString(),data:db},null,2)],{type:'application/json'});let a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='lock-in-2027-backup-'+iso(new Date())+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)}async function importData(f){if(!f)return;try{let raw=JSON.parse(await f.text());let d=raw.data||raw;if(!d||typeof d!=='object'||Array.isArray(d)||!d.logs||typeof d.logs!=='object'||Array.isArray(d.logs)||!d.lifts||typeof d.lifts!=='object'||Array.isArray(d.lifts)||Object.keys(d.logs).length>20000||Object.keys(d.lifts).length>20000)throw Error('Invalid backup');if(!confirm('Replace all current local data with this backup?'))return;db=d;save();render();alert('Backup restored')}catch(e){alert('Could not import backup: '+e.message)}}function resetData(){if(confirm('Erase all local workouts, gym logs, and settings on this device?')){localStorage.removeItem(KEY);location.reload()}}document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>go(b.dataset.tab)));document.getElementById('today').textContent=new Date().toLocaleDateString('en-CA',{month:'short',day:'numeric',year:'numeric'});render();if('serviceWorker'in navigator&&location.protocol!=='file:')navigator.serviceWorker.register('./sw.js').catch(()=>{});
+</script></body></html>
