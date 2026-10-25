@@ -51,3 +51,19 @@ Known times and paces only. Base schedule now starts at 34 km provisional rather
 Back up current app data before updating; history is stored locally in your browser, not on GitHub.
 
 Training calendar begins Monday October 19, 2026; earlier run history is kept for adaptive planning but not shown as program weeks.
+
+REAL ADAPTIVE UPDATE: Uses completed weekly mileage, number of completed runs, and longest recent logged runs; avoids catch-up mileage and reduces intensity after missed weeks. Race-derived paces remain anchored to verified PBs. Manual overrides take precedence. First week October 19, 2026. Existing data key preserved. Back up before uploading.
+
+COACH-REVIEWED UPDATE
+- Considers zero-run completed weeks instead of silently ignoring them.
+- Cautious response to training gaps, missed runs and symptom-related log notes.
+- Explains intensity adjustments in the calendar.
+- Introduces hourly-loop rehearsals in spring half-marathon long-run weeks when mileage supports it, replacing rather than adding to long-run distance.
+- Lower-body lifting deloads when returning from a training interruption.
+- After ultra recovery phase, marathon training requires explicit user confirmation; no automatic forced return.
+- Preserves original storage key, saved logs, overrides and visual design.
+- This is not a medical or independently validated coaching algorithm.
+
+2026-10-25 UPDATE: Corrected July 31 ultra date and recovery boundary; five-run default for new users; base long run moved to Sunday; Wednesday base run easy; lower Tuesday and upper sessions Monday/Thursday; Saturday threshold skipped during deload/caution. Existing stored run-day preference is retained. Not clinically validated; verify training load and workouts before relying on it.
+
+V30 QA PASS (2026-10-25): Corrected July 31 race-phase boundary, five-run default for new installations, conservative missed-week handling, base-phase upper/lower placement, and pace guidance. Existing saved user preferences remain unchanged; change Runs per week to 5 in Settings if desired. This is not a medically validated training algorithm.
