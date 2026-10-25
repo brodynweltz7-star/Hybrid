@@ -67,3 +67,5 @@ COACH-REVIEWED UPDATE
 2026-10-25 UPDATE: Corrected July 31 ultra date and recovery boundary; five-run default for new users; base long run moved to Sunday; Wednesday base run easy; lower Tuesday and upper sessions Monday/Thursday; Saturday threshold skipped during deload/caution. Existing stored run-day preference is retained. Not clinically validated; verify training load and workouts before relying on it.
 
 V30 QA PASS (2026-10-25): Corrected July 31 race-phase boundary, five-run default for new installations, conservative missed-week handling, base-phase upper/lower placement, and pace guidance. Existing saved user preferences remain unchanged; change Runs per week to 5 in Settings if desired. This is not a medically validated training algorithm.
+
+GUIDED RECOVERY VIDEO UPDATE: Verified Yoga With Adriene 20- and 30-minute follow-along videos on rest days, plus clearly labeled YouTube search links for warm-up and post-run stretching on running days. All open in new tabs and are optional.
