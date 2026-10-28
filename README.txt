@@ -1,9 +1,8 @@
-LOCK IN 2027 — PERSONAL PROFESSIONAL BUILD
+LOCK IN 2027 — LOCKED RELEASE (October 28, 2026)
 
-1. Export a JSON backup from the current website before replacing files.
-2. Upload index.html, icon.svg, manifest.webmanifest, and sw.js to the root of the Hybrid GitHub Pages repository.
-3. Reload the website and verify logs, overrides, and workout dates.
-4. This version uses the same localStorage key as the existing app. It does not sync data across browsers or devices.
-5. Completed workouts and the adaptive engine should be reviewed against your actual recovery and training; no app can guarantee injury-free progression.
+Upload the contents of this folder (not the folder itself) to your GitHub Hybrid repository. Export your JSON backup in More before updating. Keep the same browser and domain to preserve localStorage.
 
-Changes: improved compact iPhone styling, local calendar-day handling, corrected import-to-manual log ownership, updated offline cache, and preserved your personal race programming and progressive mileage.
+Preserved storage key: brodyn_lockin_2027_v1.
+Confirmed reported Oct 19–25 mileage: 37.8 km. Historical individual logs are not modified.
+Race dates: May 30 half; Jul 31 backyard ultra; Oct 17 Detroit marathon.
+This is the locked baseline. Future changes require new user constraints or an actual defect report.
