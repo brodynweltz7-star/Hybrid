@@ -1,10 +1,3 @@
-LOCK IN 2027 — LOCKED RELEASE (October 28, 2026)
+LOCK IN 2027 — Weekly Track Rotation
 
-Upload the contents of this folder (not the folder itself) to your GitHub Hybrid repository. Export your JSON backup in More before updating. Keep the same browser and domain to preserve localStorage.
-
-Preserved storage key: brodyn_lockin_2027_v1.
-Confirmed reported Oct 19–25 mileage: 37.8 km. Historical individual logs are not modified.
-Race dates: May 30 half; Jul 31 backyard ultra; Oct 17 Detroit marathon.
-This is the locked baseline. Future changes require new user constraints or an actual defect report.
-
-Updated Tuesday lower: swings, sled pushes, DB RDL, reverse lunges, seated curl, standing calf, tibialis, Pallof. Prior lower-body logs archived in legacyLowerLifts and matching exercise logs transferred. Export JSON backup before update.
+Wednesday track sessions now change each week: 6x400, 5x600, 4x800, deload, 8x400, 6x600, 4x1000, deload. Existing adaptive recovery safeguards, Garmin-based paces, gym workouts, and storage key are preserved. Upload all five files to the GitHub Pages repository. Export your backup before updating.
