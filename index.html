@@ -868,7 +868,25 @@ function cloudNotice(msg){cloudStatus=msg;const el=document.getElementById('clou
 async function cloudInit(){if(!cloudConfigured()){cloudNotice('Cloud not configured');return}if(!window.supabase){cloudNotice('Supabase library unavailable; check internet');return}try{cloudClient=window.supabase.createClient(LOCKIN_CLOUD.url,LOCKIN_CLOUD.publishableKey);const {data,error}=await cloudClient.auth.getUser();if(!error&&data?.user){cloudUser=data.user;cloudNotice('Signed in · ready to sync')}cloudClient.auth.onAuthStateChange((_event,session)=>{cloudUser=session?.user||null;if(tab==='settings')render()});if(tab==='settings')render()}catch(e){cloudNotice('Cloud initialization failed: '+e.message)}}
 async function cloudLogin(create){if(!cloudClient)return cloudNotice('Configure cloud first');const email=document.getElementById('cloud-email')?.value?.trim();const password=document.getElementById('cloud-password')?.value;if(!email||!password)return cloudNotice('Enter email and password');cloudNotice(create?'Creating account…':'Signing in…');try{const result=create?await cloudClient.auth.signUp({email,password}):await cloudClient.auth.signInWithPassword({email,password});if(result.error)throw result.error;if(create&&!result.data.session){cloudNotice('Check your email, then sign in');return}cloudUser=result.data.user;cloudNotice('Signed in. Publishing widget snapshot…');await cloudPublish(true);render()}catch(e){cloudNotice('Sign-in failed: '+e.message)}}
 async function cloudLogout(){if(cloudClient)await cloudClient.auth.signOut();cloudUser=null;cloudNotice('Signed out');render()}
-function cloudSnapshot(){const today=iso(new Date()),week=weekMonday(new Date());const days=prescribedDays(week);let doneKm=0,doneCount=0;const entries=days.map((d,i)=>{const date=plus(week,i),l=logFor(date);const completed=Boolean(l.done);if(completed){doneCount++;doneKm+=Number(l.distance)||0}return {date,title:d.title,type:d.type,plannedKm:Number(d.target)||0,gym:d.lift||'',completed,actualKm:completed?(Number(l.distance)||0):null}});return {schema:1,today,weekStart:week,weeklyTargetKm:Math.round(entries.reduce((n,d)=>n+d.plannedKm,0)*10)/10,completedKm:Math.round(doneKm*100)/100,completedSessions:doneCount,days:entries,cycling:{distanceKm:rideWeek(week).km,timeMinutes:rideWeek(week).mins},generatedAt:new Date().toISOString()}}
+function cloudSnapshot(){
+ const today=iso(new Date()),week=weekMonday(new Date());
+ const days=prescribedDays(week);let doneKm=0,doneCount=0;
+ const entries=days.map((d,i)=>{
+  const date=plus(week,i),l=logFor(date);
+  const completed=Boolean(l.done&&Number(l.distance)>0);
+  if(completed){doneCount++;doneKm+=Number(l.distance)||0;}
+  const plannedKm=Number(d.target)||0;
+  const pace=plannedKm>0?String(d.effort||'').trim():'';
+  const paceKind=/threshold/i.test(d.title)?'Threshold reps':/track|interval/i.test(d.title)?'Track reps':/race/i.test(d.title)?'Race strategy':'Target pace';
+  return {date,title:d.title,type:d.type,plannedKm,gym:d.lift||'',
+   targetPace:pace,paceKind,completed,actualKm:completed?(Number(l.distance)||0):null};
+ });
+ return {schema:2,today,weekStart:week,
+  weeklyTargetKm:Math.round(entries.reduce((n,d)=>n+d.plannedKm,0)*10)/10,
+  completedKm:Math.round(doneKm*100)/100,completedSessions:doneCount,
+  days:entries,cycling:{distanceKm:rideWeek(week).km,timeMinutes:rideWeek(week).mins},
+  generatedAt:new Date().toISOString()};
+}
 function queueCloudSync(){if(!cloudClient||!cloudUser)return;cloudPending=true;clearTimeout(cloudTimer);cloudTimer=setTimeout(()=>cloudPublish(false),1800)}
 async function cloudPublish(manual){if(!cloudClient||!cloudUser){if(manual)cloudNotice('Sign in first');return}if(cloudSaving){cloudPending=true;return}cloudSaving=true;cloudPending=false;cloudNotice('Syncing widget…');try{const snapshot=cloudSnapshot();const {error}=await cloudClient.from('widget_snapshots').upsert({user_id:cloudUser.id,snapshot,updated_at:new Date().toISOString()},{onConflict:'user_id'});if(error)throw error;cloudNotice('Synced · '+new Date().toLocaleTimeString('en-CA',{hour:'numeric',minute:'2-digit'}))}catch(e){cloudNotice('Sync failed: '+e.message)}finally{cloudSaving=false;if(cloudPending){cloudPending=false;queueCloudSync()}}}
 cloudInit();
