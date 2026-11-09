@@ -1,0 +1,7 @@
+LOCK IN 2027 - audited candidate
+
+Fixed: base/half-marathon schedule now matches Mon easy, Tue threshold+Lower, Wed easy, Thu Upper A, Fri track, Sat Upper B, Sun long. Removed inference of fatigue from absent activity records. Cycling remains optional and separate from running km.
+
+Not verified: full Garmin sync (not implemented), long-term adaptive safety, iOS Safari behavior, backup restoration on a physical phone. Training is guidance, not medical clearance.
+
+Before upload: export JSON backup from existing app. Replace index.html and sw.js. Test on your phone before relying on training prescriptions.
