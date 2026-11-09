@@ -1,7 +1,7 @@
 // LOCK IN 2027 · Scriptable medium widget · Supabase secure sync
 // Enter the same PUBLIC project values as cloud-config.js. Do not put a service-role key here.
-const URL = 'https://PASTE_PROJECT_ID.supabase.co';
-const KEY = 'PASTE_PUBLISHABLE_OR_ANON_KEY';
+const URL = 'https://jeeninsfsjyuvsrvactc.supabase.co';
+const KEY = 'sb_publishable_wy6cY5dmb2v6pKhkzBdXdg_yDSlWtJq';
 const WEBSITE = 'https://brodynweltz7-star.github.io/Hybrid/';
 const KC = 'lockin2027.sync.' + URL;
 const fm = FileManager.local();

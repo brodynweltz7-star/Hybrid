@@ -17,8 +17,8 @@ backup or bidirectional data sync. Keep exporting JSON backups.
    - PUBLISHABLE key (sb_publishable_...) or legacy anon key.
    Never use sb_secret_... or service_role in any file in this ZIP.
 
-4. Edit cloud-config.js. Replace the two PASTE_ placeholders with the URL
-   and public key. This file is public in your GitHub Pages repository.
+4. cloud-config.js is already configured with your public project URL and key.
+   This file is public in your GitHub Pages repository.
 
 5. Upload these website files to the ROOT of your GitHub Pages repo:
    index.html, cloud-config.js, sw.js, manifest.webmanifest, icon.svg.
@@ -31,8 +31,7 @@ backup or bidirectional data sync. Keep exporting JSON backups.
    If the account creation requires email confirmation, the site must be
    included in Supabase Auth URL Configuration allowed redirect URLs.
 
-7. In LOCK_IN_2027_Widget.js replace URL and KEY placeholders with the
-   SAME public Supabase URL and publishable/anon key from step 3.
+7. LOCK_IN_2027_Widget.js is already configured with your public project values.
    Copy script into Scriptable on iPhone. Run once inside Scriptable.
    Enter SAME Supabase email/password. Scriptable stores these credentials
    in the iPhone Keychain; they are NOT embedded in the widget script.
