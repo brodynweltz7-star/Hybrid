@@ -379,6 +379,9 @@ function seedKnownRuns(){
  db.runHistoryImport={version:1,dates:KNOWN_RUNS.map(r=>r.date)};
  save();
 }
+// Initialize cloud state before either historical import calls save().
+let cloudClient=null,cloudUser=null,cloudTimer=null,cloudSaving=false,cloudPending=false;
+let cloudStatus='Not connected';
 seedKnownRuns();
 // Verified Garmin-recorded activities supplied as Strava screenshots, Nov 8 2026.
 // Import is idempotent and never replaces user-edited records.
@@ -874,8 +877,6 @@ function primary(t){return ['week','strength','plan','ultra'].includes(t)?'week'
 function render(){const active=primary(tab);document.querySelectorAll('.tab').forEach(b=>{b.classList.toggle('active',b.dataset.tab===active);b.setAttribute('aria-current',b.dataset.tab===active?'page':'false')});const items=GROUPS[active]||[];const sub=items.length>1?'<nav class="subnav" aria-label="'+(active==='week'?'Training tools':'Progress tools')+'">'+items.map(t=>'<button class="subtab '+(tab===t?'active':'')+'" onclick="go(\''+t+'\')">'+SUBLABEL[t]+'</button>').join('')+'</nav>':'';document.getElementById('content').innerHTML=sub+pages[tab]()+ (tab==='settings'?cloudSettingsPanel():'')+`<footer class="footer">LOCK IN 2027</footer>`;if(tab==='ultra')loopCalc(52)}function go(t){tab=t;render();window.scrollTo({top:0,behavior:'smooth'})}function moveWeek(n){selectedWeek=plus(selectedWeek,n);if(selectedWeek<START)selectedWeek=START;render()}function logField(s,k,v){if(k==='distance'&&v!==''&&(!Number.isFinite(Number(v))||Number(v)<0||Number(v)>200)){alert('Enter a valid distance between 0 and 200 km.');return;}if(k==='hr'&&v!==''&&(!Number.isFinite(Number(v))||Number(v)<30||Number(v)>250)){alert('Check the heart rate value.');return;}db.logs[s]||={};db.logs[s][k]=v;if(k==='done'&&v===true&&!Number(db.logs[s].distance)&&prescribedDays(weekMonday(dateUTC(s)))[dayDiff(weekMonday(dateUTC(s)),s)]?.target>0){db.logs[s].distance='';}if(k==='done'||k==='distance'){db.logs[s].source='app';db.logs[s].notes=String(db.logs[s].notes||'').replace(/\s*· Imported from runs you previously shared/g,'');}else if(!db.logs[s].source)db.logs[s].source='app';save();if(k==='done'||k==='distance')render()}function liftField(s,t,i,k,v){if(k==='weight'&&v!==''&&(!Number.isFinite(Number(v))||Number(v)<0||Number(v)>2000)){alert('Check the weight value.');return;}let key=s+'_'+t;db.lifts[key]||={};db.lifts[key][i]||={};db.lifts[key][i][k]=v;save()}function liftNotes(s,t,v){let key=s+'_'+t;db.lifts[key]||={};db.lifts[key].notes=v;save()}function openLift(s,t){db.uiLiftDate=s;db.uiLiftType=t;save();go('strength')}function loopCalc(v){let m=Number(v),pace=m/6.7056,pmin=Math.floor(pace),psec=Math.round((pace-pmin)*60);document.getElementById('loopLabel').textContent=m;document.getElementById('restCalc').textContent=60-m+' min';document.getElementById('paceCalc').textContent=pmin+':'+String(psec).padStart(2,'0')+'/km'}function exportData(){let b=new Blob([JSON.stringify({version:1,exportedAt:new Date().toISOString(),data:db},null,2)],{type:'application/json'});let a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='lock-in-2027-backup-'+iso(new Date())+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)}async function importData(f){if(!f)return;try{let raw=JSON.parse(await f.text());let d=raw.data||raw;if(!d||typeof d!=='object'||Array.isArray(d)||!d.logs||typeof d.logs!=='object'||Array.isArray(d.logs)||!d.lifts||typeof d.lifts!=='object'||Array.isArray(d.lifts)||Object.keys(d.logs).length>20000||Object.keys(d.lifts).length>20000)throw Error('Invalid backup');if(!confirm('Replace all current local data with this backup?'))return;db=d;save();render();alert('Backup restored')}catch(e){alert('Could not import backup: '+e.message)}}function resetData(){if(confirm('Erase all local workouts, gym logs, and settings on this device?')){localStorage.removeItem(KEY);location.reload()}}document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>go(b.dataset.tab)));document.getElementById('today').textContent=new Date().toLocaleDateString('en-CA',{month:'short',day:'numeric',year:'numeric'});render();if('serviceWorker'in navigator&&location.protocol!=='file:')navigator.serviceWorker.register('./sw.js').catch(()=>{});
 
 // CLOUD SYNC: authenticated, read-only widget snapshot. Local training data stays authoritative.
-let cloudClient=null,cloudUser=null,cloudTimer=null,cloudSaving=false,cloudPending=false;
-let cloudStatus='Not connected';
 function cloudConfigured(){return Boolean(window.LOCKIN_CLOUD&&/^https:\/\/[a-z0-9-]+\.supabase\.co\/?$/.test(LOCKIN_CLOUD.url)&&LOCKIN_CLOUD.publishableKey&&!LOCKIN_CLOUD.publishableKey.includes('PASTE_'))}
 function cloudSettingsPanel(){return `<section class="panel"><h2>☁ Widget cloud sync</h2><p class="mini muted">Private read-only snapshot for your Scriptable widget. Your browser logs remain the source of truth. Changes sync after saving while this site is open and online.</p><p class="mini" id="cloud-status">${esc(cloudStatus)}</p>${!cloudConfigured()?'<p class="mini">First fill in cloud-config.js with your Supabase project URL and publishable/anon key.</p>':cloudUser?`<p class="mini muted">Signed in as ${esc(cloudUser.email||'your account')}</p><div class="row"><button class="btn" onclick="cloudPublish(true)">Sync now</button><button class="btn secondary" onclick="cloudLogout()">Sign out</button></div>`:`<div class="field"><label>Email</label><input id="cloud-email" type="email" autocomplete="email" placeholder="you@example.com"></div><div class="field"><label>Password</label><input id="cloud-password" type="password" autocomplete="current-password" placeholder="Your Supabase account password"></div><div class="row"><button class="btn" onclick="cloudLogin(false)">Sign in</button><button class="btn secondary" onclick="cloudLogin(true)">Create account</button></div><p class="mini muted">For a new account, confirm the email if Supabase requests it, then sign in.</p>`}</section>`}
 function cloudNotice(msg){cloudStatus=msg;const el=document.getElementById('cloud-status');if(el)el.textContent=msg}
@@ -889,14 +890,22 @@ function cloudSnapshot(){
   const date=plus(week,i),l=logFor(date);
   const completed=Boolean(l.done&&Number(l.distance)>0);
   if(completed){doneCount++;doneKm+=Number(l.distance)||0;}
-  const plannedKm=Number(d.target)||0;
+  const originallyPlannedKm=Number(d.target)||0;
+  const missed=db.missedSessions?.[date]||{};
+  const missedRun=!completed&&originallyPlannedKm>0&&!!missed.run;
+  const gymLog=db.lifts?.[date+'_'+d.lift]||{};
+  const gymLogged=Object.entries(gymLog).some(([k,v])=>k.startsWith('exercise:')&&v?.done===true);
+  const missedGym=!!d.lift&&!gymLogged&&!!missed.gym;
+  const plannedKm=missedRun?0:originallyPlannedKm;
   const pace=plannedKm>0?String(d.effort||'').trim():'';
   const paceKind=/threshold/i.test(d.title)?'Threshold reps':/track|interval/i.test(d.title)?'Track reps':/race/i.test(d.title)?'Race strategy':'Target pace';
   return {date,title:d.title,type:d.type,plannedKm,gym:d.lift||'',
-   targetPace:pace,paceKind,completed,actualKm:completed?(Number(l.distance)||0):null};
+   originallyPlannedKm,targetPace:pace,paceKind,completed,actualKm:completed?(Number(l.distance)||0):null,
+   missedRun:missedRun?missed.run.reason:null,missedGym:missedGym?missed.gym.reason:null};
  });
  return {schema:2,today,weekStart:week,
   weeklyTargetKm:Math.round(entries.reduce((n,d)=>n+d.plannedKm,0)*10)/10,
+  originallyScheduledKm:Math.round(entries.reduce((n,d)=>n+d.originallyPlannedKm,0)*10)/10,
   completedKm:Math.round(doneKm*100)/100,completedSessions:doneCount,
   days:entries,cycling:{distanceKm:rideWeek(week).km,timeMinutes:rideWeek(week).mins},
   generatedAt:new Date().toISOString()};
@@ -904,4 +913,4 @@ function cloudSnapshot(){
 function queueCloudSync(){if(!cloudClient||!cloudUser)return;cloudPending=true;clearTimeout(cloudTimer);cloudTimer=setTimeout(()=>cloudPublish(false),1800)}
 async function cloudPublish(manual){if(!cloudClient||!cloudUser){if(manual)cloudNotice('Sign in first');return}if(cloudSaving){cloudPending=true;return}cloudSaving=true;cloudPending=false;cloudNotice('Syncing widget…');try{const snapshot=cloudSnapshot();const {error}=await cloudClient.from('widget_snapshots').upsert({user_id:cloudUser.id,snapshot,updated_at:new Date().toISOString()},{onConflict:'user_id'});if(error)throw error;cloudNotice('Synced · '+new Date().toLocaleTimeString('en-CA',{hour:'numeric',minute:'2-digit'}))}catch(e){cloudNotice('Sync failed: '+e.message)}finally{cloudSaving=false;if(cloudPending){cloudPending=false;queueCloudSync()}}}
 cloudInit();
-</script></body></html>
+</script><script src="./race-coach.js"></script><script src="./premium-ui.js"></script></body></html>

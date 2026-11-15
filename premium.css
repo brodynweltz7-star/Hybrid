@@ -1,0 +1,179 @@
+/* LOCK IN — 2027. One restrained, coherent visual system. */
+:root{
+  --bg:#0b0c0e;
+  --panel:#17191d;
+  --panel2:#202328;
+  --line:#353940;
+  --text:#f5f5f4;
+  --muted:#b5b9bf;
+  --lime:#ec6466;
+  --cyan:#c7cbd0;
+  --orange:#eeb679;
+  --accent-soft:#382426;
+}
+html{background:var(--bg);color-scheme:dark}
+body{background:var(--bg);color:var(--text);font-size:14px;font-weight:450}
+header{background:rgba(11,12,14,.97);border-bottom-color:#303238}
+.head{max-width:1040px}
+.brand{font-weight:900;letter-spacing:-1.2px}
+.brand b{color:var(--lime)}
+.tabs{max-width:1040px}
+.tabs .tab.active{background:#372426;border-color:#815154;box-shadow:inset 0 -2px 0 var(--lime)}
+.tabs .tab:hover{background:#26272b}
+.shell{max-width:1040px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:none}
+.hero,.focus-panel{background:linear-gradient(128deg,#292023 0%,#191a1e 70%,#16181b 100%);border-color:#684044}
+.panel h2{color:var(--text);font-size:19px}
+.stat,.workout-metric,.focus-metrics>div{background:#202328;border:1px solid #3a3d43}
+.stat strong,.workout-metric strong{color:var(--text)}
+.eyebrow,.tag,.mindset-meta,.workout-type{color:var(--lime)}
+.subtab.active{background:#382629;border-color:#85585a;color:var(--text)}
+.pill{border-color:#52555a;background:rgba(255,255,255,.02);color:#e6e7e9}
+.btn{background:var(--lime);color:#230e11;border-radius:10px;font-weight:800}
+.btn.secondary,.navweek button{background:#292b30;color:#f7f7f7}
+.btn.danger{background:#542c31;color:#fff}
+.hint{background:#25262a;color:#ebebed;border-left-color:#8e9095}
+.phase.active{background:#312326}
+.bar i{background:var(--lime)}
+input,select,textarea{background:#111316;border-color:#4a4d54;color:#f5f5f5}
+input:focus-visible,button:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:2px solid #ff9395;outline-offset:2px}
+.lift-item{background:#1d1f23;border-color:#3b3e43}
+.lift-chevron,.ride-editor summary{color:#ff9597}
+.ride-editor,.ride-mini{background:#242126;border-color:#493a40;color:#e6dade}
+.ride-record{border-bottom-color:#383940}
+.workout-card{background:#1b1d20;border-color:#414247}
+.workout-card.completed{background:#1d2520;border-color:#52735a}
+.workout-expand>summary{color:#ff9699}
+.instruction-list li::marker{color:#ff9699}
+.recovery-link{background:#312326;border-color:#674447}
+.recovery-links>b{color:#ffb1b2}
+
+/* New information hierarchy: one decisive action, one truthful week. */
+.page-title{font-size:clamp(25px,5vw,34px);line-height:1.13;letter-spacing:-.9px;margin:8px 0 11px}
+.section-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px}
+.section-head h2,.section-head p{margin:0}
+.section-sub{color:var(--muted);font-size:12px;line-height:1.55}
+.page-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:15px}
+.page-actions .btn{white-space:nowrap}
+.metrics-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:15px}
+.metrics-row .stat{min-width:0;padding:15px}
+.metrics-row strong{font-size:clamp(18px,2.5vw,26px);margin:8px 0 0;line-height:1.2}
+.metrics-row label{display:block;font-size:11px;color:#bec0c5}
+.metrics-row .fine{font-size:11px;color:#aeb3ba;margin-top:6px;line-height:1.5}
+.session-hero{padding:24px 25px}
+.session-hero .page-title{max-width:750px}
+.session-hero .intro{color:#d2d2d6;line-height:1.6;max-width:740px;margin:12px 0}
+.session-hero .focus-metrics{grid-template-columns:repeat(2,minmax(0,1fr));max-width:620px}
+.session-hero .focus-metrics span{font-size:11px}
+.session-hero .focus-metrics strong{font-size:clamp(16px,3vw,23px)}
+.session-hero .pill{display:inline-block;margin-top:2px}
+.compact-details{margin-top:13px;border-top:1px solid #404045;padding-top:11px}
+.compact-details>summary{cursor:pointer;font-size:12px;color:#ffd1d1;font-weight:750;padding:9px 0}
+.compact-details[open]>summary{margin-bottom:11px}
+.compact-details .instruction-list{margin-bottom:14px}
+.week-rows{display:grid;gap:0}
+.week-row{display:grid;grid-template-columns:48px minmax(0,1fr) auto;align-items:center;gap:12px;text-align:left;background:transparent;border:0;border-top:1px solid #37393e;color:var(--text);padding:12px 2px;width:100%;min-height:62px}
+.week-row:first-child{border-top:0}
+.week-row:hover{background:#222328}
+.week-row:focus-visible{outline-offset:-2px}
+.week-row.today{background:#302325;border-radius:9px;border-top-color:transparent;padding-left:9px;padding-right:9px}
+.week-row .day-name{font-size:12px;font-weight:850;color:#e2e2e4;letter-spacing:.3px}
+.week-row .session-name{display:block;font-size:13px;font-weight:750;line-height:1.35;overflow-wrap:anywhere}
+.week-row .session-sub{display:block;font-size:11px;color:var(--muted);margin-top:4px}
+.week-row .day-result{font-size:11px;text-align:right;color:#d5d6d9;max-width:135px;line-height:1.35}
+.week-row .day-result.done{color:#a5ddb7}
+.week-row .day-result.info{color:#ff9fa2}
+.race-preview{display:flex;justify-content:space-between;align-items:center;gap:13px;padding:2px 0}
+.race-preview strong{display:block;font-size:15px}
+.race-preview small{display:block;color:var(--muted);margin-top:4px;line-height:1.5}
+.race-preview em{font-style:normal;font-weight:850;color:var(--lime);text-align:right;white-space:nowrap}
+.plan-card{border:1px solid #3b3e44;background:#1c1e22;border-radius:13px;margin:11px 0;padding:16px}
+.plan-card.is-today{border-color:#9c5559;background:#252023}
+.plan-card.is-done{border-color:#52735a;background:#1e2621}
+.plan-card .plan-line{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.plan-card .day-title{font-size:15px}
+.plan-card .date-label{color:var(--muted);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px}
+.plan-card .session-pill{font-size:11px;font-weight:800;white-space:nowrap;color:#ffb2b2}
+.plan-card .session-pill.logged{color:#a5ddb7}
+.plan-card .run-metrics{display:flex;flex-wrap:wrap;gap:7px;margin:13px 0 7px}
+.plan-card .run-metrics span{display:inline-flex;padding:8px 10px;border-radius:8px;border:1px solid #42454b;background:#15171a;color:#ececef;font-size:12px}
+.plan-card .plan-detail{border-top:1px solid #36383e;margin-top:14px;padding-top:9px}
+.plan-card details>summary{cursor:pointer;color:#f7c8ca;font-size:12px;font-weight:800;min-height:36px;display:flex;align-items:center;gap:7px}
+.plan-card details[open]>summary{margin-bottom:11px}
+.plan-card .action-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}
+.plan-card .action-row .btn{font-size:12px}
+.plan-card .log-form{border-top:1px solid #3b3d43;margin-top:10px;padding-top:11px}
+.plan-card .log-form .fields{grid-template-columns:repeat(4,minmax(0,1fr))}
+.plan-card .log-form .check{white-space:normal}
+.plan-card .muted-check{font-size:12px;color:#c6c8cd}
+.plan-note{font-size:12px;line-height:1.55;color:#bec0c7}
+.overrides-box{margin-top:14px;border-top:1px solid #393b40;padding-top:10px}
+.overrides-box>summary{color:#cbd0d6}
+.warning-inline{background:#34272a;border:1px solid #66434b;padding:12px;border-radius:10px;font-size:12px;line-height:1.6;color:#f6dddd}
+.status-good{color:#a9dcb8}
+.status-muted{color:#b5b8bd}
+.subsection{margin-top:18px}
+.soft-divider{border-top:1px solid #37393e;margin:15px 0}
+.year-phase{padding:12px 0;border-top:1px solid #36383d}
+.year-phase strong{font-size:13px}
+.year-phase small{color:#b6bac0;display:block;margin-top:5px;line-height:1.5}
+.year-phase.is-active{background:#302426;border-radius:8px;padding:12px;margin:0 -8px 0;padding-inline:8px}
+.mini-note{font-size:11px;color:#c1c2c8;line-height:1.55}
+.advanced-reset{padding:12px;border:1px solid #563339;border-radius:10px;margin-top:16px}
+.advanced-reset>summary{cursor:pointer;color:#ffaaaa;font-size:12px;font-weight:700}
+.setting-toggle{display:flex;gap:11px;align-items:flex-start;margin:13px 0;font-size:13px;line-height:1.45}
+.setting-toggle input{flex-shrink:0;width:20px;min-height:20px;height:20px;margin-top:1px;accent-color:var(--lime)}
+.setting-toggle[aria-disabled="true"]{opacity:.58}
+.report-meter{height:7px;background:#35383e;border-radius:20px;overflow:hidden;margin:8px 0 11px}
+.report-meter>i{display:block;height:100%;background:var(--lime)}
+.report-row{padding:12px 0;border-top:1px solid #34363a}
+.report-row:first-child{border-top:0}
+.report-row .row b{font-size:13px}
+.recovery-links{margin:10px 0 12px;padding:11px}
+.recovery-link{font-size:12px}
+
+/* Excused sessions: visible when relevant, tucked away when not. */
+.absence-box{margin:14px 0;padding:12px 14px;background:#202226;border:1px solid #45474d;border-radius:11px}
+.absence-heading{font-size:12px;font-weight:800;color:#f1eef0;margin-bottom:4px}
+.absence-heading small{display:block;font-size:11px;line-height:1.5;font-weight:450;color:#b6bbc3;margin-top:3px}
+.absence-item+.absence-item{border-top:1px solid #393c42;margin-top:9px;padding-top:9px}
+.absence-summary{display:grid;gap:4px;padding:8px 10px;background:#2b2823;border:1px solid #625039;border-radius:9px;line-height:1.5}
+.absence-summary b{font-size:11px;color:#f4c594;text-transform:uppercase;letter-spacing:.35px}
+.absence-summary span{font-size:12px;color:#ebdfd0;overflow-wrap:anywhere;white-space:pre-wrap}
+.absence-editor{margin-top:3px}
+.absence-editor>summary{min-height:40px;color:#e5c6c7}
+.absence-fields{grid-template-columns:minmax(0,1fr) minmax(0,1.4fr)}
+.absence-fields textarea{min-height:70px;max-width:100%;resize:vertical}
+.absence-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:11px}
+.absence-actions .btn{font-size:12px}
+.historic-absence{margin-top:12px}
+.session-pill.absence-pill{color:#f3ca94}
+
+@media(max-width:650px){
+  .shell{padding-top:14px}
+  .metrics-row{gap:7px}
+  .metrics-row .stat{padding:12px 9px}
+  .metrics-row strong{font-size:18px}
+  .metrics-row label{font-size:10px}
+  .metrics-row .fine{font-size:10px}
+  .session-hero{padding:19px}
+  .session-hero .focus-metrics{grid-template-columns:1fr 1.2fr}
+  .session-hero .focus-metrics>div{padding:11px}
+  .session-hero .focus-metrics strong{font-size:clamp(15px,4vw,20px)}
+  .week-row{grid-template-columns:38px minmax(0,1fr) auto;gap:8px}
+  .week-row .day-result{font-size:10px;max-width:86px}
+  .plan-card{padding:14px;margin:10px 0}
+  .plan-card .log-form .fields{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .plan-card .plan-line{flex-wrap:wrap}
+  .race-preview{align-items:flex-start}
+  .absence-fields{grid-template-columns:1fr}
+}
+@media(max-width:360px){
+  .metrics-row{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .week-row .day-result{max-width:70px}
+  .session-hero .focus-metrics{grid-template-columns:1fr}
+  .plan-card .run-metrics{gap:5px}
+}
+@media(prefers-reduced-motion:reduce){
+  .week-row,.btn,.subtab,.tab{transition:none}
+}
