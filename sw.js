@@ -1,5 +1,5 @@
 /* LOCK IN 2027 offline app shell — network first, cached fallback. */
-const CACHE = 'lock-in-2027-backdated-gym-20261115-v4';
+const CACHE = 'lock-in-2027-unified-session-20261115-v5';
 const ASSETS = [
   './', './index.html', './race-coach.js', './premium-ui.js',
   './premium.css', './manifest.webmanifest', './icon.svg', './cloud-config.js'

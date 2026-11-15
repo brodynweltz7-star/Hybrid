@@ -127,24 +127,23 @@
   }
 
   function statusFor(date,d){
-    const log=actualRun(date),ride=rideOn(date),gymLog=gymRecord(date,d.lift);
-    const notes=[];
-    if(log)notes.push(niceKm(log.distance)+' km logged');
-    if(gymLog&&gymLog.logged>0)notes.push('Gym '+gymLog.logged+'/'+gymLog.total);
-    if(ride)notes.push('Bike '+niceKm(ride.distance)+' km');
-    const runAway=!log&&excused(date,'run'),gymAway=!(gymLog&&gymLog.logged>0)&&excused(date,'gym');
-    if(runAway&&gymAway)notes.push(date>currentDay()?'Run + gym away':'Run + gym excused');
-    else if(runAway)notes.push(date>currentDay()?'Run away planned':'Run excused');
-    else if(gymAway)notes.push(date>currentDay()?'Gym away planned':'Gym excused');
-    if(notes.length){
-      const plannedRun=Number(d.target)>0;
-      const plannedGym=!!d.lift;
-      const runComplete=!plannedRun||!!log;
-      const gymComplete=!plannedGym||(gymLog&&gymLog.total>0&&gymLog.logged===gymLog.total);
-      return {label:notes.join(' · '),style:runComplete&&gymComplete?'done':(!log&&(excused(date,'run')||excused(date,'gym'))?'status-muted':'info')};
+    const log=actualRun(date),ride=rideOn(date),gymLog=gymRecord(date,d.lift),future=date>currentDay();
+    const items=[];
+    const badge=(label,style)=>items.push(`<span class="status-item ${style}">${esc(label)}</span>`);
+    if(Number(d.target)>0||log){
+      if(log)badge('Run · '+niceKm(log.distance)+' km ✓','done');
+      else if(excused(date,'run'))badge(future?'Run · away planned':'Run · excused','muted');
+      else badge(future?'Run · upcoming':'Run · not logged','pending');
     }
-    if(d.type==='rest')return {label:'Recovery',style:'status-muted'};
-    return {label:date>currentDay()?'Upcoming':'Not logged',style:date>currentDay()?'status-muted':'info'};
+    if(d.lift){
+      if(gymLog?.complete)badge('Gym · complete ✓','done');
+      else if(gymLog?.logged>0)badge('Gym · '+gymLog.logged+'/'+gymLog.total,'partial');
+      else if(excused(date,'gym'))badge(future?'Gym · away planned':'Gym · excused','muted');
+      else badge(future?'Gym · upcoming':'Gym · not logged','pending');
+    }
+    if(ride)badge('Bike · '+niceKm(ride.distance)+' km','done');
+    if(!items.length)badge(d.conditional?'Conditional':d.type==='rest'?'Recovery':future?'Upcoming':'Not logged','muted');
+    return items.join('');
   }
 
   function jumpTo(date){
@@ -184,9 +183,7 @@
       ${actual&&actual.pace?`<p class="section-sub">Average recorded pace: <strong>${esc(actual.pace)}/km</strong></p>`:''}
       <p class="section-sub">${esc(note)}</p>
       ${actual?'':`<details class="compact-details"><summary>View today's session instructions</summary>${quickInstructions(d,5)}${recoveryLinks(d)}</details>`}
-      <div class="page-actions"><button class="btn" onclick="lockinJumpTo('${now}')">${actual?'View recorded workout':'View & log workout'} →</button>
-        ${d.lift?`<button class="btn secondary" onclick="openLift('${now}','${d.lift}')">Gym log</button>`:''}
-      </div>
+      <div class="page-actions"><button class="btn" onclick="lockinJumpTo('${now}')">Open today's session →</button></div>
     </section>`;
   }
 
@@ -206,7 +203,7 @@
       return `<button class="week-row ${date===now?'today':''}" onclick="lockinJumpTo('${date}')" aria-label="Open ${esc(dName)} workout">
         <span class="day-name">${dName}</span><span><span class="session-name">${esc(sessionName(d))}</span>
         <span class="session-sub">${esc(detail)}${d.lift&&d.target>0?' · gym':''}</span></span>
-        <span class="day-result ${status.style}">${esc(status.label)}</span></button>`;
+        <span class="day-result status-stack">${status}</span></button>`;
     }).join('');
     const upcoming=next?`<section class="panel"><div class="section-head"><h2>Next race</h2><button class="btn secondary" onclick="go('plan')">Race plan →</button></div>
       <div class="race-preview"><div><strong>${esc(next.name)}</strong><small>${fmt(next.date)} · ${esc(next.goal)}</small></div>
@@ -253,15 +250,28 @@
       </details>`;
   }
 
+  function addSessionPanel(date,actions){
+    if(!actions.length)return '';
+    return `<details class="compact-details add-session" ${db.uiSessionEditorDate===date?'open':''}>
+      <summary onclick="db.uiSessionEditorDate=db.uiSessionEditorDate==='${date}'?null:'${date}'">＋ Add session</summary>
+      <div class="session-choice-list">${actions.join('')}</div>
+    </details>`;
+  }
+
   function dayPlanCard(date,d,i,today){
     const runLogged=actualRun(date),bike=rideOn(date),g=gymRecord(date,d.lift),race=isRace(date);
     const isToday=date===today;
     const runTarget=Number(d.target)>0;
-    const status=runLogged?`<span class="session-pill logged">RUN LOGGED${excused(date,'gym')?' · GYM EXCUSED':''}</span>`:
-      excused(date,'run')||excused(date,'gym')?`<span class="session-pill absence-pill">${excused(date,'run')?'RUN':'GYM'} EXCUSED</span>`:
-      d.conditional?'<span class="session-pill">IF RECOVERED</span>':
-      date>today?'<span class="session-pill">UPCOMING</span>':
-      '<span class="session-pill">NOT RECORDED</span>';
+    const mayLog=date<=today,states=[];
+    if(runTarget||runLogged)states.push(runLogged?'<span class="session-pill logged">RUN LOGGED</span>':
+      excused(date,'run')?'<span class="session-pill absence-pill">RUN EXCUSED</span>':
+      `<span class="session-pill pending">RUN ${mayLog?'NOT LOGGED':'UPCOMING'}</span>`);
+    if(d.lift)states.push(g?.complete?'<span class="session-pill logged">GYM LOGGED</span>':
+      g?.logged>0?`<span class="session-pill partial">GYM ${g.logged}/${g.total}</span>`:
+      excused(date,'gym')?'<span class="session-pill absence-pill">GYM EXCUSED</span>':
+      `<span class="session-pill pending">GYM ${mayLog?'NOT LOGGED':'UPCOMING'}</span>`);
+    if(!states.length)states.push(`<span class="session-pill pending">${d.conditional?'IF RECOVERED':'RECOVERY'}</span>`);
+    const status=`<div class="session-pill-list">${states.join('')}</div>`;
     const distanceLabel=runTarget?`<span>${niceKm(d.target,race)} km ${race?'race distance':'planned'}</span>`:'';
     const paceLabel=runTarget&&d.effort?
       `<span>${race?'Race approach:':'Target effort:'} ${esc(d.effort)}</span>`:'';
@@ -270,8 +280,11 @@
     const gymState=d.lift&&g?.logged>0?`<p class="plan-note">Gym: ${g.logged} / ${g.total} exercises marked complete. ${g.complete?'Full gym log completed.':'Not a completed workout until all exercises are logged.'}</p>`:'';
     const notes=d.conditional?'<div class="warning-inline">Conditional forecast only. These workouts are not automatically scheduled until you confirm recovery after the previous race.</div>':'';
     const dateLabel=DAYN[i]+' · '+fmt(date);
-    const mayLog=date<=today;
-    return `<article id="workout-${date}" class="plan-card ${isToday?'is-today':''} ${runLogged?'is-done':''}">
+    const sessionActions=mayLog?[
+      ...(runTarget||runLogged?[runForm(date,d)]:[]),
+      ...(d.lift?[`<button class="btn secondary" onclick="openLift('${date}','${d.lift}')">${g?.logged?'Edit gym workout':'Gym · Open workout log'} →</button>`]:[])
+    ]:[];
+    return `<article id="workout-${date}" class="plan-card ${isToday?'is-today':''} ${runLogged&&(!d.lift||g?.complete)?'is-done':''}">
       <div class="plan-line"><div><div class="date-label">${esc(dateLabel)}</div>
         <div class="day-title">${esc(sessionName(d))}</div></div>${status}</div>
       <div class="run-metrics">${distanceLabel}${paceLabel}${gymLabel}${actualLabel}</div>
@@ -284,10 +297,10 @@
         ${instructionList(d.detail)}${recoveryLinks(d)}
       </details>
       <div class="action-row">
-        ${d.lift?`<button class="btn secondary" onclick="openLift('${date}','${d.lift}')">Open gym log →</button>`:''}
         <button class="btn secondary" onclick="db.uiRideDate='${date}';save();go('ride')">${bike?'Edit bike ride':'＋ Log bike ride'}</button>
       </div>
-      ${mayLog?runForm(date,d):'<p class="plan-note">Actual run logging appears on the workout date. You can adjust the plan ahead of time.</p>'}
+      ${addSessionPanel(date,sessionActions)}
+      ${!mayLog?'<p class="plan-note">Session logging opens on the workout date. You can adjust your plan ahead of time.</p>':''}
       ${runTarget&&!race?`<details class="overrides-box"><summary>Adjust this workout (optional)</summary>
         <div class="fields" style="grid-template-columns:repeat(2,minmax(0,1fr))">
           <div class="field"><label>Run distance override (km)</label>
@@ -345,7 +358,7 @@
       </details>
     </section>
     <section class="panel"><div class="section-head"><div><h2>Your sessions</h2>
-    <p class="section-sub">Tap instructions or the run log only when you need them.</p></div></div>
+    <p class="section-sub">Use Add session to record the workout assigned to each day.</p></div></div>
     ${days.map((d,i)=>{
       const date=plus(w,i);
       return date<now?actualPastDay(date):dayPlanCard(date,d,i,now);
@@ -360,18 +373,18 @@
     const day=prescribedDays(week)[dayDiff(week,date)]||{};
     const controls=missedSessionControls(date,day);
     const pastGym=pastGymRecords(date);
-    const chosen=pastGym[0]?.type||day.lift||'upperA';
-    const selectId='backdate-gym-'+date;
-    const gymChoices=[['lower','Lower Body'],['upperA','Upper A'],['upperB','Upper B']]
-      .map(([type,label])=>`<option value="${type}" ${chosen===type?'selected':''}>${label}</option>`).join('');
-    const gymEditor=`<details class="compact-details backdate-gym">
-      <summary>${pastGym.length?'Edit or add another gym workout':'＋ Add a past gym workout'}</summary>
-      <p class="mini-note">This will save to <b>${fmt(date)}</b>, even if the gym session was unscheduled. Choose the workout you actually did.</p>
-      <div class="backdate-gym-row"><div class="field"><label for="${selectId}">Workout type</label>
-        <select id="${selectId}">${gymChoices}</select></div>
-        <button class="btn secondary" onclick="openLift('${date}',document.getElementById('${selectId}').value)">Open gym log →</button>
-      </div></details>`;
-    const extra=`<div class="historic-absence">${controls}${gymEditor}</div>`;
+    const gymNames={lower:'Lower Body',upperA:'Upper A',upperB:'Upper B'};
+    const planned=[Number(day.target)>0?'Run':'',day.lift?gymNames[day.lift]:''].filter(Boolean);
+    const types=[...new Set([day.lift,...pastGym.map(g=>g.type)].filter(Boolean))];
+    const actions=[];
+    if(Number(day.target)>0||actualRun(date))actions.push(`<button class="btn secondary" onclick="editingPastDate=editingPastDate==='${date}'?null:'${date}';render()">${actualRun(date)?'Run · Edit recorded workout':'Run · Log workout'}</button>`);
+    for(const type of types){
+      const logged=pastGym.some(g=>g.type===type);
+      actions.push(`<button class="btn secondary" onclick="openLift('${date}','${type}')">${esc(gymNames[type])} · ${logged?'Edit log':'Log workout'}</button>`);
+    }
+    const description=planned.length?`<p class="historical-plan">Planned: ${esc(planned.join(' + '))}</p>`:
+      '<p class="historical-plan">Recovery day · no run or gym prescribed</p>';
+    const extra=`<div class="historic-absence">${description}${addSessionPanel(date,actions)}${controls}</div>`;
     return originalActualPastDay(date).replace(/<\/article>$/,extra+'</article>');
   };
 
