@@ -359,8 +359,19 @@
     const week=weekMonday(dateUTC(date));
     const day=prescribedDays(week)[dayDiff(week,date)]||{};
     const controls=missedSessionControls(date,day);
-    const gymLink=day.lift?`<button class="btn secondary" onclick="openLift('${date}','${day.lift}')">${gymHasWork(date,day.lift)?'Edit gym log':'＋ Log gym'}</button>`:'';
-    const extra=controls||gymLink?`<div class="historic-absence">${controls}${gymLink?`<div class="absence-actions">${gymLink}</div>`:''}</div>`:'';
+    const pastGym=pastGymRecords(date);
+    const chosen=pastGym[0]?.type||day.lift||'upperA';
+    const selectId='backdate-gym-'+date;
+    const gymChoices=[['lower','Lower Body'],['upperA','Upper A'],['upperB','Upper B']]
+      .map(([type,label])=>`<option value="${type}" ${chosen===type?'selected':''}>${label}</option>`).join('');
+    const gymEditor=`<details class="compact-details backdate-gym">
+      <summary>${pastGym.length?'Edit or add another gym workout':'＋ Add a past gym workout'}</summary>
+      <p class="mini-note">This will save to <b>${fmt(date)}</b>, even if the gym session was unscheduled. Choose the workout you actually did.</p>
+      <div class="backdate-gym-row"><div class="field"><label for="${selectId}">Workout type</label>
+        <select id="${selectId}">${gymChoices}</select></div>
+        <button class="btn secondary" onclick="openLift('${date}',document.getElementById('${selectId}').value)">Open gym log →</button>
+      </div></details>`;
+    const extra=`<div class="historic-absence">${controls}${gymEditor}</div>`;
     return originalActualPastDay(date).replace(/<\/article>$/,extra+'</article>');
   };
 

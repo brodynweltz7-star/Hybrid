@@ -6,6 +6,22 @@ This version has a clean charcoal/red interface, honest actual-vs-planned
 metrics, race-aware coaching, editable backdated records, an improved medium
 widget, a corrected service worker for offline fallback, and excused absences.
 
+BACKDATED GYM WORKOUTS (NEW)
+--------------------------------
+- Open "My Week" and navigate back to the date you trained.
+- Open that past day's "Add a past gym workout" section. You can do this on
+  ANY past day, even if no gym workout had been scheduled.
+- Select Lower Body, Upper A, or Upper B and press "Open gym log".
+- The gym log opens with that historical date already selected. Enter actual
+  reps, weights, completed exercise checkboxes, and optional session notes.
+- Go back to the same week: the date displays the saved gym type and number of
+  exercises marked complete. Partial logs remain labeled partial.
+- To change an existing entry, open that date's gym log again. Different gym
+  types and separately logged runs or bike rides are not overwritten.
+- Logging an actual gym exercise clears any previously saved gym absence
+  reason on that date, but does not clear a separate run absence.
+- The Gym tab itself also has a date selector for direct backdating.
+
 MISSED RUN / GYM REASONS (NEW)
 --------------------------------
 - Open your seven-day plan and select the date (including future travel dates).
